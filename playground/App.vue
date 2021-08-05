@@ -1,21 +1,21 @@
 <template>
   <termynal>
     <termynal-text>Successfully installed spacy</termynal-text>
+    <termynal-text :lineDelay="0">Successfully installed spacy</termynal-text>
+    <termynal-text>Successfully installed spacy</termynal-text>
+    <termynal-text>Successfully installed spacy</termynal-text>
+    <termynal-text>Successfully installed spacy</termynal-text>
+    <termynal-text>Successfully installed spacy</termynal-text>
   </termynal>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue"
-import {
-  Termynal,
-  TermynalInput,
-  TermynalProgress,
-  TermynalText,
-} from "../src/"
+import { Termynal, TermynalText } from "../src/"
 
 export default defineComponent({
   name: "App",
-  components: { Termynal, TermynalInput, TermynalProgress, TermynalText },
+  components: { Termynal, TermynalText },
 })
 </script>
 

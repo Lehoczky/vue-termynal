@@ -4,8 +4,9 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue"
+import { wait } from "./utils"
 
 export default defineComponent({
   props: {
@@ -23,6 +24,28 @@ export default defineComponent({
     progressPercent: { type: Number, default: 100, required: false },
     /** Character to use for cursor, defaults to ▋. */
     cursor: { type: String, default: "▋", required: false },
+    /**  Don't initialise the animation. */
+    noInit: { type: Boolean, default: false, required: false },
+  },
+  data() {
+    return {
+      lines: [],
+    }
+  },
+  mounted() {
+    if (this.noInit) {
+      return
+    }
+    this.start()
+  },
+  methods: {
+    async start() {
+      await wait(this.startDelay)
+
+      for (const line of this.lines) {
+        await line.show()
+      }
+    },
   },
 })
 </script>
