@@ -4,23 +4,16 @@
 
 <script>
 import { defineComponent } from "vue"
+import TermynalLine from "./TermynalLineMixin"
 import { wait } from "./utils"
 
 export default defineComponent({
   name: "TermynalProgress",
+  mixins: [TermynalLine],
   props: {
-    lineDelay: { type: Number, default: null, required: false },
     progressLength: { type: Number, default: null, required: false },
     progressChar: { type: String, default: null, required: false },
     progressPercent: { type: Number, default: null, required: false },
-  },
-  data() {
-    return {
-      visible: false,
-    }
-  },
-  mounted() {
-    this.$parent.lines.push(this)
   },
   methods: {
     async show() {

@@ -6,21 +6,12 @@
 
 <script>
 import { defineComponent } from "vue"
+import TermynalLine from "./TermynalLineMixin"
 import { wait } from "./utils"
 
 export default defineComponent({
   name: "TermynalText",
-  props: {
-    lineDelay: { type: Number, default: null, required: false },
-  },
-  data() {
-    return {
-      visible: false,
-    }
-  },
-  mounted() {
-    this.$parent.lines.push(this)
-  },
+  mixins: [TermynalLine],
   methods: {
     async show() {
       const delay = this.lineDelay ?? this.$parent.lineDelay

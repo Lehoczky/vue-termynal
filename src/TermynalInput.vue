@@ -11,23 +11,20 @@
 
 <script>
 import { defineComponent } from "vue"
+import TermynalLine from "./TermynalLineMixin"
 import { wait } from "./utils"
 
 export default defineComponent({
   name: "TermynalInput",
+  mixins: [TermynalLine],
   props: {
     typeDelay: { type: Number, default: null, required: false },
-    lineDelay: { type: Number, default: null, required: false },
     prompt: { type: String, default: null, required: false },
   },
   data() {
     return {
-      visible: false,
       cursor: this.$parent.cursor,
     }
-  },
-  mounted() {
-    this.$parent.lines.push(this)
   },
   methods: {
     async show() {

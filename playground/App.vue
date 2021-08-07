@@ -4,9 +4,9 @@
     <termynal-text :line-delay="0">Successfully installed spacy</termynal-text>
     <termynal-progress />
     <termynal-input>Successfully installed spacy</termynal-input>
-    <termynal-input :prompt="'>>>'"
-      >Successfully installed spacy</termynal-input
-    >
+    <termynal-input :prompt="'>>>'">
+      Successfully installed spacy
+    </termynal-input>
     <termynal-input :prompt="'^'">Successfully installed spacy</termynal-input>
   </termynal>
 </template>
@@ -23,5 +23,4 @@ export default defineComponent({
 })
 </script>
 
-<style>
-</style>
+<style></style>
