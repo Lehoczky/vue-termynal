@@ -1,6 +1,6 @@
 {
   "parser": "vue-eslint-parser",
   "plugins": ["only-warn"],
-  "extends": ["eslint:recommended", "plugin:vue/vue3-recommended"],
+  "extends": ["eslint:recommended", "plugin:vue/vue3-recommended", "prettier"],
   "rules": {}
 }
