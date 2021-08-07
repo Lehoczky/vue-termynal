@@ -18,7 +18,7 @@
   box-sizing: border-box;
 }
 
-.v-termynal:before {
+.v-termynal::before {
   content: "";
   position: absolute;
   top: 15px;
@@ -27,12 +27,13 @@
   width: 15px;
   height: 15px;
   border-radius: 50%;
+
   /* A little hack to display the window buttons in one pseudo element. */
   background: #d9515d;
   box-shadow: 25px 0 0 #f4c025, 50px 0 0 #3ec930;
 }
 
-.v-termynal:after {
+.v-termynal::after {
   content: "bash";
   position: absolute;
   color: var(--vt-color-text-subtle);
@@ -47,28 +48,28 @@
   line-height: 2;
 }
 
-.vt__line:before {
+.vt__line::before {
   /* Set up defaults and ensure empty lines are displayed. */
   content: "";
   display: inline-block;
   vertical-align: middle;
 }
 
-.vt__line--input:before,
-[vt__prompt]:before {
+.vt__line--input::before,
+[vt__prompt]::before {
   margin-right: 0.75em;
   color: var(--color-text-subtle);
 }
 
-.vt__line--input:before {
+.vt__line--input::before {
   content: "$";
 }
 
-[vt__prompt]:before {
+[vt__prompt]::before {
   content: attr(vt__prompt);
 }
 
-[vt__cursor]:after {
+[vt__cursor]::after {
   content: attr(vt__cursor);
   font-family: monospace;
   margin-left: 0.5em;
