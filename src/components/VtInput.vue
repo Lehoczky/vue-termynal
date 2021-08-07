@@ -1,9 +1,9 @@
 <template>
   <span
     v-show="visible"
-    class="termynal-line input"
-    :t-prompt="prompt"
-    :t-cursor="cursor"
+    class="vt__line vt__line--input"
+    :vt__prompt="prompt"
+    :vt__cursor="cursor"
   >
     <slot />
   </span>
@@ -11,11 +11,11 @@
 
 <script>
 import { defineComponent } from "vue"
-import TermynalLine from "./TermynalLineMixin"
-import { wait } from "./utils"
+import TermynalLine from "../mixins/TermynalLineMixin"
+import { wait } from "../utils"
 
 export default defineComponent({
-  name: "TermynalInput",
+  name: "VtlInput",
   mixins: [TermynalLine],
   props: {
     typeDelay: { type: Number, default: null, required: false },

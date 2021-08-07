@@ -1,16 +1,16 @@
 <template>
-  <span v-show="visible" class="termynal-line">
+  <span v-show="visible" class="vt__line">
     <slot />
   </span>
 </template>
 
 <script>
 import { defineComponent } from "vue"
-import TermynalLine from "./TermynalLineMixin"
-import { wait } from "./utils"
+import TermynalLine from "../mixins/TermynalLineMixin"
+import { wait } from "../utils"
 
 export default defineComponent({
-  name: "TermynalText",
+  name: "VtText",
   mixins: [TermynalLine],
   methods: {
     async show() {

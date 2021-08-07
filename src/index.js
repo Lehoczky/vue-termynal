@@ -1,6 +1,6 @@
-import "./styles.css"
+import "./css/styles.css"
 
-export { default as Termynal } from "./Termynal.vue"
-export { default as TermynalInput } from "./TermynalInput.vue"
-export { default as TermynalProgress } from "./TermynalProgress.vue"
-export { default as TermynalText } from "./TermynalText.vue"
+export { default as VTermynal } from "./components/VTermynal.vue"
+export { default as VtInput } from "./components/VtInput.vue"
+export { default as VtProgress } from "./components/VtProgress.vue"
+export { default as VtText } from "./components/VtText.vue"

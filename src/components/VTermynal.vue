@@ -1,12 +1,12 @@
 <template>
-  <div class="termynal-container">
+  <div class="v-termynal">
     <slot />
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue"
-import { wait } from "./utils"
+import { wait } from "../utils"
 
 export default defineComponent({
   props: {

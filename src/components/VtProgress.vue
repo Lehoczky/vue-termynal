@@ -1,14 +1,14 @@
 <template>
-  <span v-show="visible" class="termynal-line"></span>
+  <span v-show="visible" class="vt__line"></span>
 </template>
 
 <script>
 import { defineComponent } from "vue"
-import TermynalLine from "./TermynalLineMixin"
-import { wait } from "./utils"
+import TermynalLine from "../mixins/TermynalLineMixin"
+import { wait } from "../utils"
 
 export default defineComponent({
-  name: "TermynalProgress",
+  name: "VtProgress",
   mixins: [TermynalLine],
   props: {
     progressLength: { type: Number, default: null, required: false },
