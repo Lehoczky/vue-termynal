@@ -1,5 +1,5 @@
 <template>
-  <span v-if="visible" class="termynal-line">
+  <span v-show="visible" class="termynal-line">
     <slot />
   </span>
 </template>

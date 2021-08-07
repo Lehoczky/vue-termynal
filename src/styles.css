@@ -54,28 +54,26 @@
   vertical-align: middle;
 }
 
-[data-ty="input"]:before,
-[data-ty-prompt]:before {
+.termynal-line.input:before,
+[t-prompt]:before {
   margin-right: 0.75em;
   color: var(--color-text-subtle);
 }
 
-[data-ty="input"]:before {
+.termynal-line.input:before {
   content: "$";
 }
 
-.termynal-line[data-ty-prompt]:before {
-  content: attr(data-ty-prompt);
+.termynal-line[t-prompt]:before {
+  content: attr(t-prompt);
 }
 
-[data-ty-cursor]:after {
-  content: attr(data-ty-cursor);
+[t-cursor]:after {
+  content: attr(t-cursor);
   font-family: monospace;
   margin-left: 0.5em;
   animation: blink 1s infinite;
 }
-
-/* Cursor animation */
 
 @keyframes blink {
   50% {

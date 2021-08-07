@@ -13,7 +13,6 @@
     "eslint": "^7.32.0",
     "eslint-plugin-only-warn": "^1.0.3",
     "eslint-plugin-vue": "^7.15.1",
-    "jest": "^27.0.6",
     "prettier": "^2.3.2",
     "vite": "^2.4.4",
     "vue": "^3.0.5",
