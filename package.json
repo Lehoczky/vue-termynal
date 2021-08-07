@@ -2,10 +2,23 @@
   "name": "vue-termynal",
   "version": "0.0.0",
   "private": false,
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vite build",
     "serve": "vite preview"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/my-lib.umd.js",
+  "module": "./dist/my-lib.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/petite-vue.es.js",
+      "require": "./dist/petite-vue.umd.js"
+    }
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.3.0",
