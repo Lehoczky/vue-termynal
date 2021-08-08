@@ -1,5 +1,5 @@
 <template>
-  <div v-show="started" class="v-termynal">
+  <div class="v-termynal">
     <slot />
   </div>
 </template>
@@ -29,7 +29,6 @@ export default defineComponent({
   },
   data() {
     return {
-      started: false,
       lines: [],
     }
   },
@@ -41,7 +40,6 @@ export default defineComponent({
   },
   methods: {
     async start() {
-      this.started = true
       await wait(this.startDelay)
 
       for (const line of this.lines) {
