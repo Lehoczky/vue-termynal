@@ -22,6 +22,8 @@ export default defineComponent({
     progressChar: { type: String, default: "█", required: false },
     /** Max percent of progress. */
     progressPercent: { type: Number, default: 100, required: false },
+    /** Delay between each progress character, in ms. */
+    progressDelay: { type: Number, default: 90, required: false },
     /** Character to use for cursor, defaults to ▋. */
     cursor: { type: String, default: "▋", required: false },
     /**  Don't initialise the animation. */
