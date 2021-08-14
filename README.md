@@ -1,27 +1,30 @@
-# Vue 3 + Typescript + Vite
+# Vue-Termynal
 
-This template should help get you started developing with Vue 3 and Typescript in Vite.
+Vue-Termynal is the reimplementation of the [termynal library](https://github.com/ines/termynal) in Vue.js.
 
-## Recommended IDE Setup
+It lets you create animated teminal windows with simple, customizable vue components.
 
-[VSCode](https://code.visualstudio.com/) + [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur). Make sure to enable `vetur.experimental.templateInterpolationService` in settings!
+## Example
 
-### If Using `<script setup>`
+```html
+<v-termynal>
+  <vt-input>pip install spacy</vt-input>
+  <vt-progress />
+  <vt-text>Successfully installed spacy</vt-text>
+  <vt-text></vt-text>
+  <vt-input>python -m spacy download en</vt-input>
+  <vt-progress />
+  <vt-text>Installed model 'en'</vt-text>
+  <vt-text></vt-text>
+  <vt-input>python</vt-input>
+  <vt-input prompt=">>>">import spacy</vt-input>
+  <vt-input prompt=">>>">nlp = spacy.load('en')</vt-input>
+  <vt-input prompt=">>>">doc = nlp(u'Hello world')</vt-input>
+  <vt-input prompt=">>>">print([(w.text, w.pos_) for w in doc])</vt-input>
+  <vt-text>[('Hello', 'INTJ'), ('world', 'NOUN')]</vt-text>
+</v-termynal>
+```
 
-[`<script setup>`](https://github.com/vuejs/rfcs/pull/227) is a feature that is currently in RFC stage. To get proper IDE support for the syntax, use [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) instead of Vetur (and disable Vetur).
+![example gif](docs/assets/example.gif)
 
-## Type Support For `.vue` Imports in TS
-
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can use the following:
-
-### If Using Volar
-
-Run `Volar: Switch TS Plugin on/off` from VSCode command palette.
-
-### If Using Vetur
-
-1. Install and add `@vuedx/typescript-plugin-vue` to the [plugins section](https://www.typescriptlang.org/tsconfig#plugins) in `tsconfig.json`
-2. Delete `src/shims-vue.d.ts` as it is no longer needed to provide module info to Typescript
-3. Open `src/main.ts` in VSCode
-4. Open the VSCode command palette
-5. Search and run "Select TypeScript version" -> "Use workspace version"
+## Documentation
