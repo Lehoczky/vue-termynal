@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "styles:lint": "stylelint \"src/**/*.css\"",
+    "lint": "eslint src/ --ext .js,.vue --max-warnings 0",
+    "styles:check": "stylelint \"src/**/*.css\"",
     "styles:fix": "stylelint \"src/**/*.css\" --fix",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
@@ -51,5 +52,9 @@
     "name": "Zoltan Lehoczky",
     "email": "ifjlehoczkyzoltan@gmail.com",
     "url": "https://github.com/Lehoczky"
+  },
+  "repository": {
+    "url": "https://github.com/Lehoczky/vue-termynal",
+    "type": "git"
   }
 }
