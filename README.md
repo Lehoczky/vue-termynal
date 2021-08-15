@@ -25,6 +25,10 @@ It lets you create animated teminal windows with simple, customizable vue compon
 </v-termynal>
 ```
 
-![example gif](docs/assets/example.gif)
+![example gif](docs/assets/simple-example.gif)
+
+A more customized window:
+
+![example gif](docs/assets/complex-example.gif)
 
 ## Documentation
