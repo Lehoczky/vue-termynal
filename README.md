@@ -30,7 +30,3 @@ https://lehoczky.github.io/vue-termynal/
 ```
 
 ![example gif](docs/assets/simple-example.gif)
-
-A more customized window:
-
-![example gif](docs/assets/complex-example.gif)

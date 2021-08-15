@@ -85,6 +85,20 @@ Example for a light theme:
 </style>
 ```
 
+<v-termynal :line-delay="0" :start-delay="0" :type-delay="0" class="light-termynal">
+  <vt-input>pip install spaCy</vt-input>
+  <vt-progress />
+  <vt-text>Successfully installed spacy</vt-text>
+</v-termynal>
+
+<style>
+.light-termynal {
+  --vt-color-bg: #ddd;
+  --vt-color-text: #1a1e24;
+  --vt-color-text-subtle: #d76d77;
+}
+</style>
+
 ## Prompt styles
 
 To make prompts easy to customise and style, they are defined as `:before` pseudo-elements:
