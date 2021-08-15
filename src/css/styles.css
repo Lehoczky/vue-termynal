@@ -16,6 +16,7 @@
   padding: 75px 45px 35px;
   position: relative;
   box-sizing: border-box;
+  text-align: start;
 }
 
 .v-termynal::before {

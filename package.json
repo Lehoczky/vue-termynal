@@ -1,5 +1,6 @@
 {
   "name": "@lehoczky/vue-termynal",
+  "description": "Vue.js implementation of the termynal library.",
   "version": "0.1.0",
   "private": false,
   "license": "MIT",
@@ -8,7 +9,9 @@
     "build": "vite build",
     "serve": "vite preview",
     "styles:lint": "stylelint \"src/**/*.css\"",
-    "styles:fix": "stylelint \"src/**/*.css\" --fix"
+    "styles:fix": "stylelint \"src/**/*.css\" --fix",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "files": [
     "dist",
@@ -18,9 +21,12 @@
   "module": "./dist/my-lib.es.js",
   "exports": {
     ".": {
-      "import": "./dist/petite-vue.es.js",
-      "require": "./dist/petite-vue.umd.js"
+      "import": "./dist/vue-termynal.es.js",
+      "require": "./dist/vue-termynal.umd.js"
     }
+  },
+  "dependencies": {
+    "style-inject": "^0.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.3.0",
@@ -35,7 +41,8 @@
     "stylelint-config-standard": "^22.0.0",
     "vite": "^2.4.4",
     "vue": "^3.0.5",
-    "vue-tsc": "^0.2.2"
+    "vue-tsc": "^0.2.2",
+    "vuepress-vite": "^2.0.0-beta.24"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -44,6 +51,5 @@
     "name": "Zoltan Lehoczky",
     "email": "ifjlehoczkyzoltan@gmail.com",
     "url": "https://github.com/Lehoczky"
-  },
-  "sideEffects": false
+  }
 }
