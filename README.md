@@ -4,6 +4,10 @@ Vue-Termynal is the reimplementation of the [termynal library](https://github.co
 
 It lets you create animated teminal windows with simple, customizable vue components.
 
+## Documentation
+
+https://lehoczky.github.io/vue-termynal/
+
 ## Example
 
 ```html
@@ -30,5 +34,3 @@ It lets you create animated teminal windows with simple, customizable vue compon
 A more customized window:
 
 ![example gif](docs/assets/complex-example.gif)
-
-## Documentation

@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/<REPO>/",
+  base: "/vue-termynal/",
   lang: "en-US",
   title: "Vue-Termynal",
   description: "Documentation site for the Vue-Termynal library",
