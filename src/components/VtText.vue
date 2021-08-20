@@ -1,5 +1,5 @@
 <template>
-  <span v-show="visible" class="vt__line">
+  <span class="vt__line" :style="style">
     <slot />
   </span>
 </template>

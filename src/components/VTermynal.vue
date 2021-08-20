@@ -30,6 +30,7 @@ export default defineComponent({
     noInit: { type: Boolean, default: false, required: false },
     loop: { type: Boolean, default: false, required: false },
     loopDelay: { type: Number, default: 2500, required: false },
+    fixedHeight: { type: Boolean, default: false, required: false },
   },
   data() {
     return {

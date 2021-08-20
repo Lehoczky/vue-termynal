@@ -1,7 +1,7 @@
 <template>
   <span
-    v-show="visible"
     class="vt__line vt__line--input"
+    :style="style"
     :vt__prompt="prompt"
     :vt__cursor="cursor"
   >

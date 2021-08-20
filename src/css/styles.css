@@ -54,12 +54,14 @@
   content: "";
   display: inline-block;
   vertical-align: middle;
+  visibility: visible;
 }
 
 .vt__line--input::before,
 [vt__prompt]::before {
   margin-right: 0.75em;
   color: var(--color-text-subtle);
+  visibility: inherit;
 }
 
 .vt__line--input::before {
