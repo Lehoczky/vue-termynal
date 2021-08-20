@@ -12,4 +12,9 @@ export default defineComponent({
   mounted() {
     this.$parent.lines.push(this)
   },
+  methods: {
+    hide() {
+      this.visible = false
+    },
+  },
 })

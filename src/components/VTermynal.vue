@@ -28,6 +28,8 @@ export default defineComponent({
     cursor: { type: String, default: "▋", required: false },
     /**  Don't initialise the animation. */
     noInit: { type: Boolean, default: false, required: false },
+    loop: { type: Boolean, default: false, required: false },
+    loopDelay: { type: Number, default: 2500, required: false },
   },
   data() {
     return {
@@ -47,6 +49,17 @@ export default defineComponent({
       for (const line of this.lines) {
         await line.show()
       }
+
+      if (this.loop) {
+        await wait(this.loopDelay)
+        this.restart()
+      }
+    },
+    async restart() {
+      for (const line of this.lines) {
+        line.hide()
+      }
+      this.start()
     },
   },
 })
