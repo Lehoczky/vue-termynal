@@ -1,5 +1,5 @@
 <template>
-  <span class="vt__line" :style="style"></span>
+  <span class="vt__line" :style="style" />
 </template>
 
 <script>
