@@ -1,14 +1,19 @@
 <template>
   <div class="v-termynal">
+    <forward-button v-if="showForwardButton" @click="doFastForward()" />
     <slot />
+    <restart-button v-if="showRestartButton" @click="restart()" />
   </div>
 </template>
 
 <script>
 import { defineComponent } from "vue"
+import ForwardButton from "./_ForwardBtn.vue"
+import RestartButton from "./_RestartButton.vue"
 import { wait } from "../utils"
 
 export default defineComponent({
+  components: { ForwardButton, RestartButton },
   props: {
     /** Delay before animation, in ms. */
     startDelay: { type: Number, default: 600, required: false },
@@ -28,14 +33,24 @@ export default defineComponent({
     cursor: { type: String, default: "▋", required: false },
     /**  Don't initialise the animation. */
     noInit: { type: Boolean, default: false, required: false },
-    loop: { type: Boolean, default: false, required: false },
-    loopDelay: { type: Number, default: 2500, required: false },
     fixedHeight: { type: Boolean, default: false, required: false },
+    forwardButton: { type: Boolean, default: false, required: false },
+    restartButton: { type: Boolean, default: false, required: false },
   },
   data() {
     return {
       lines: [],
+      fastForward: false,
+      finished: false,
     }
+  },
+  computed: {
+    showRestartButton() {
+      return this.restartButton && this.finished
+    },
+    showForwardButton() {
+      return this.forwardButton && !this.finished && !this.fastForward
+    },
   },
   mounted() {
     if (this.noInit) {
@@ -50,17 +65,19 @@ export default defineComponent({
       for (const line of this.lines) {
         await line.show()
       }
-
-      if (this.loop) {
-        await wait(this.loopDelay)
-        this.restart()
-      }
+      this.finished = true
     },
-    async restart() {
+    restart() {
+      this.fastForward = false
+      this.finished = false
+
       for (const line of this.lines) {
         line.hide()
       }
       this.start()
+    },
+    doFastForward() {
+      this.fastForward = true
     },
   },
 })

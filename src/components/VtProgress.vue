@@ -5,7 +5,6 @@
 <script>
 import { defineComponent } from "vue"
 import TermynalLine from "../mixins/TermynalLineMixin"
-import { wait } from "../utils"
 
 export default defineComponent({
   name: "VtProgress",
@@ -29,7 +28,7 @@ export default defineComponent({
       const chars = progressChar.repeat(progressLength)
 
       for (let i = 1; i < chars.length + 1; i++) {
-        await wait(progressDelay)
+        await this.wait(progressDelay)
 
         const percent = Math.round((i / chars.length) * 100)
         this.$el.textContent = `${chars.slice(0, i)} ${percent}%`
@@ -38,7 +37,7 @@ export default defineComponent({
         }
       }
 
-      await wait(lineDelay)
+      await this.wait(lineDelay)
     },
   },
 })

@@ -12,7 +12,6 @@
 <script>
 import { defineComponent } from "vue"
 import TermynalLine from "../mixins/TermynalLineMixin"
-import { wait } from "../utils"
 
 export default defineComponent({
   name: "VtlInput",
@@ -36,11 +35,11 @@ export default defineComponent({
       this.visible = true
 
       for (let char of chars) {
-        await wait(typeDelay)
+        await this.wait(typeDelay)
         this.$el.textContent += char
       }
 
-      await wait(lineDelay)
+      await this.wait(lineDelay)
       this.removeCursor()
     },
     removeCursor() {

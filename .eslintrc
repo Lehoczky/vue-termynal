@@ -2,5 +2,7 @@
   "parser": "vue-eslint-parser",
   "plugins": ["only-warn"],
   "extends": ["eslint:recommended", "plugin:vue/vue3-recommended", "prettier"],
-  "rules": {}
+  "rules": {
+    "vue/html-self-closing": ["warn", { "html": { "void": "always" } }]
+  }
 }

@@ -2,6 +2,8 @@
   --vt-color-bg: #252a33;
   --vt-color-text: #eee;
   --vt-color-text-subtle: #a2a2a2;
+  --vt-color-btn: #aebbff;
+  --vt-color-btn-hover: #fa0;
 }
 
 .v-termynal {
@@ -77,6 +79,20 @@
   font-family: monospace;
   margin-left: 0.5em;
   animation: blink 1s infinite;
+}
+
+.vt__button {
+  display: block;
+  margin-left: auto;
+  color: var(--vt-color-btn);
+  background: transparent;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.vt__button:hover {
+  color: var(--vt-color-btn-hover);
 }
 
 @keyframes blink {

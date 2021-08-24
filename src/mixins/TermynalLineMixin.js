@@ -1,4 +1,5 @@
 import { defineComponent } from "vue"
+import { wait } from "../utils"
 
 export default defineComponent({
   props: {
@@ -28,6 +29,12 @@ export default defineComponent({
   methods: {
     hide() {
       this.visible = false
+    },
+    async wait(time) {
+      if (this.$parent.fastForward) {
+        return wait(0)
+      }
+      return wait(time)
     },
   },
 })

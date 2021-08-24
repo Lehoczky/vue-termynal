@@ -7,7 +7,6 @@
 <script>
 import { defineComponent } from "vue"
 import TermynalLine from "../mixins/TermynalLineMixin"
-import { wait } from "../utils"
 
 export default defineComponent({
   name: "VtText",
@@ -17,7 +16,7 @@ export default defineComponent({
       const delay = this.lineDelay ?? this.$parent.lineDelay
       this.visible = true
 
-      await wait(delay)
+      await this.wait(delay)
     },
   },
 })
