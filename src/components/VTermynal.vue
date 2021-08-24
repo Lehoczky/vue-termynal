@@ -8,7 +8,7 @@
 
 <script>
 import { defineComponent } from "vue"
-import ForwardButton from "./_ForwardBtn.vue"
+import ForwardButton from "./_ForwardButton.vue"
 import RestartButton from "./_RestartButton.vue"
 import { wait } from "../utils"
 
