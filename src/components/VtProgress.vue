@@ -24,6 +24,7 @@ export default defineComponent({
         this.progressPercent ?? this.$parent.progressPercent
       const progressDelay = this.progressDelay ?? this.$parent.progressDelay
 
+      this.$el.textContent = ""
       this.visible = true
       const chars = progressChar.repeat(progressLength)
 

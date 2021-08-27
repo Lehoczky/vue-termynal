@@ -1,8 +1,18 @@
 <template>
   <div class="v-termynal">
-    <forward-button v-if="showForwardButton" @click="doFastForward()" />
+    <forward-button
+      v-if="forwardButton"
+      :visible="showForwardButton"
+      @click="doFastForward()"
+    />
+
     <slot />
-    <restart-button v-if="showRestartButton" @click="restart()" />
+
+    <restart-button
+      v-if="restartButton"
+      :visible="showRestartButton"
+      @click="restart()"
+    />
   </div>
 </template>
 
