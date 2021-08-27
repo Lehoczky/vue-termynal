@@ -4,7 +4,7 @@
 
 <CodeGroupItem title="Terminal" >
 
-<v-termynal class="terminal" fixed-height  restart-button>
+<v-termynal class="terminal" fixed-height forward-button restart-button>
   <vt-input>pip install spacy</vt-input>
   <vt-progress />
   <vt-text>Successfully installed spacy</vt-text>
