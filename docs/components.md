@@ -17,6 +17,9 @@ The following props are available:
 | `progressDelay`   | number  | `90`    | Delay between each progress character, in ms.                                                                             |
 | `cursor`          | string  | `'▋'`   | Character to use for cursor.                                                                                              |
 | `noInit`          | boolean | `false` | Don't initialise the animation on load. This means you can call `this.$refs.termynal.start()` yourself whenever you want. |
+| `fixedHeight`     | boolean | `false` | Allocate area for every line instead of growing dynamically as they appear.                                               |
+| `forwardButton`   | boolean | `false` | Whether to a show the fast forward button.                                                                                |
+| `restartButton`   | boolean | `false` | Whether to a show the restart button.                                                                                     |
 
 ## Text
 

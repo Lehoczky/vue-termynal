@@ -29,9 +29,7 @@ Then in the template, create simple terminal like this:
 </v-termynal>
 ```
 
-<button @click="show=!show">{{!show ? "Show" : "Hide"}} result</button>
-
-<v-termynal v-if="show">
+<v-termynal restart-button>
   <vt-input>pip install spaCy</vt-input>
   <vt-progress />
   <vt-text>Successfully installed spacy</vt-text>
@@ -40,9 +38,3 @@ Then in the template, create simple terminal like this:
 As you can see each `vt-input` `vt-progress` `vt-text` component inside the `<v-termynal>` will be animated and shown line by line.
 
 You will see how to customize these components in the following pages.
-
-<script setup>
-import { ref } from 'vue'
-
-const show = ref(false)
-</script>

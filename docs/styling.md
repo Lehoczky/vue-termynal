@@ -62,6 +62,8 @@ Colors are defined with native css variables, the defaults are:
   --vt-color-bg: #252a33;
   --vt-color-text: #eee;
   --vt-color-text-subtle: #a2a2a2;
+  --vt-color-btn: #aebbff;
+  --vt-color-btn-hover: #fa0;
 }
 ```
 
@@ -69,7 +71,7 @@ Example for a light theme:
 
 ```vue
 <template>
-  <v-termynal class="light-termynal">
+  <v-termynal class="light-termynal" forward-button restart-button>
     <vt-input>pip install spaCy</vt-input>
     <vt-progress />
     <vt-text>Successfully installed spacy</vt-text>
@@ -81,11 +83,13 @@ Example for a light theme:
   --vt-color-bg: #ddd;
   --vt-color-text: #1a1e24;
   --vt-color-text-subtle: #d76d77;
+  --vt-color-btn: #881823;
+  --vt-color-btn-hover: #460c12;
 }
 </style>
 ```
 
-<v-termynal :line-delay="0" :start-delay="0" :type-delay="0" class="light-termynal">
+<v-termynal class="light-termynal" forward-button restart-button fixed-height>
   <vt-input>pip install spaCy</vt-input>
   <vt-progress />
   <vt-text>Successfully installed spacy</vt-text>
@@ -96,6 +100,8 @@ Example for a light theme:
   --vt-color-bg: #ddd;
   --vt-color-text: #1a1e24;
   --vt-color-text-subtle: #d76d77;
+  --vt-color-btn: #881823;
+  --vt-color-btn-hover: #460c12;
 }
 </style>
 

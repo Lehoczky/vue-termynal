@@ -6,7 +6,13 @@ module.exports = {
   themeConfig: {
     repo: "https://github.com/Lehoczky/vue-termynal",
     repoLabel: "GitHub",
-    sidebar: ["/", "components.md", "styling.md", "vuepress-integration.md"],
+    sidebar: [
+      "/",
+      "components.md",
+      "styling.md",
+      "vuepress-integration.md",
+      "examples.md",
+    ],
     lastUpdated: false,
   },
 }

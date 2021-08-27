@@ -43,8 +43,11 @@ export default defineComponent({
     cursor: { type: String, default: "▋", required: false },
     /**  Don't initialise the animation. */
     noInit: { type: Boolean, default: false, required: false },
+    /** Allocate area for every line instead of growing dynamically as they appear. */
     fixedHeight: { type: Boolean, default: false, required: false },
+    /** Whether to a show the fast forward button. */
     forwardButton: { type: Boolean, default: false, required: false },
+    /** Whether to a show the restart button. */
     restartButton: { type: Boolean, default: false, required: false },
   },
   data() {

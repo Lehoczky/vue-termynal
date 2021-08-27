@@ -55,7 +55,7 @@
     "url": "https://github.com/Lehoczky"
   },
   "repository": {
-    "url": "https://github.com/Lehoczky/vue-termynal",
+    "url": "https://github.com/Lehoczky/vue-termynal.git",
     "type": "git"
   }
 }
