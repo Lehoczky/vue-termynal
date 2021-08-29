@@ -2,7 +2,7 @@ import { defineComponent } from "vue"
 
 export default defineComponent({
   props: {
-    visible: { type: Number, required: true },
+    visible: { type: Boolean, required: true },
   },
   computed: {
     style() {

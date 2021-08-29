@@ -53,6 +53,7 @@ export default defineComponent({
   data() {
     return {
       lines: [],
+      started: false,
       fastForward: false,
       finished: false,
     }
@@ -62,7 +63,12 @@ export default defineComponent({
       return this.restartButton && this.finished
     },
     showForwardButton() {
-      return this.forwardButton && !this.finished && !this.fastForward
+      return (
+        this.forwardButton &&
+        this.started &&
+        !this.finished &&
+        !this.fastForward
+      )
     },
   },
   mounted() {
@@ -73,6 +79,7 @@ export default defineComponent({
   },
   methods: {
     async start() {
+      this.started = true
       await wait(this.startDelay)
 
       for (const line of this.lines) {
