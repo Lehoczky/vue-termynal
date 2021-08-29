@@ -1,8 +1,9 @@
 # Vue-Termynal
 
-[![NPM version](https://img.shields.io/npm/v/stylelint.svg)](https://www.npmjs.com/package/@lehoczky/vue-termynal)
+[![NPM version](https://img.shields.io/npm/v/@lehoczky/vue-termynal.svg)](https://www.npmjs.com/package/@lehoczky/vue-termynal)
 ![lint status](https://github.com/lehoczky/vue-termynal/workflows/lint/badge.svg)
 ![docs status](https://github.com/lehoczky/vue-termynal/workflows/docs/badge.svg)
+![docs status](https://github.com/lehoczky/vue-termynal/workflows/publish/badge.svg)
 
 Vue-Termynal is the reimplementation of the [termynal library](https://github.com/ines/termynal) in Vue.js.
 
