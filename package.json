@@ -54,6 +54,15 @@
     "email": "ifjlehoczkyzoltan@gmail.com",
     "url": "https://github.com/Lehoczky"
   },
+  "homepage": "https://lehoczky.github.io/vue-termynal",
+  "keywords": [
+    "vue",
+    "vue3",
+    "terminal",
+    "termynal",
+    "vuepress",
+    "documentation"
+  ],
   "repository": {
     "url": "https://github.com/Lehoczky/vue-termynal.git",
     "type": "git"
