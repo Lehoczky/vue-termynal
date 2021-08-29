@@ -62,7 +62,7 @@
 .vt__line--input::before,
 [vt__prompt]::before {
   margin-right: 0.75em;
-  color: var(--color-text-subtle);
+  color: var(--vt-color-text-subtle);
   visibility: inherit;
 }
 
