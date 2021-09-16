@@ -6,11 +6,7 @@ export default defineComponent({
   },
   computed: {
     style() {
-      const hiddenStyles = this.$parent.fixedHeight
-        ? { visibility: "hidden" }
-        : { display: "none" }
-
-      return this.visible ? null : hiddenStyles
+      return this.visible ? null : { visibility: "hidden" }
     },
   },
 })

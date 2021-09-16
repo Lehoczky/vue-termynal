@@ -4,7 +4,7 @@
 
 <CodeGroupItem title="Terminal" >
 
-<v-termynal class="terminal" fixed-height forward-button restart-button>
+<v-termynal class="terminal" forward-button restart-button>
   <vt-input>pip install spacy</vt-input>
   <vt-progress />
   <vt-text>Successfully installed spacy</vt-text>
@@ -26,7 +26,7 @@
   <CodeGroupItem title="HTML">
 
 ```html:no-line-numbers
-<v-termynal fixed-height forward-button restart-button>
+<v-termynal forward-button restart-button>
   <vt-input>pip install spacy</vt-input>
   <vt-progress />
   <vt-text>Successfully installed spacy</vt-text>
@@ -52,7 +52,7 @@
 
 <CodeGroupItem title="Terminal" >
 
-<v-termynal class="terminal light" :type-delay="40" :line-delay="700" :start-delay="0" fixed-height forward-button restart-button>
+<v-termynal class="terminal light" :type-delay="40" :line-delay="700" :start-delay="0" forward-button restart-button>
   <vt-input prompt="▲">npm uninstall react</vt-input>
   <vt-text>Are you sure you want to uninstall 'react'?</vt-text>
   <vt-input prompt="(y/n)" :type-delay="1000">y</vt-input>
@@ -78,7 +78,6 @@
   :type-delay="40"
   :line-delay="700"
   :start-delay="0"
-  fixed-height
   forward-button
   restart-button
 >
@@ -120,7 +119,7 @@
 
 <CodeGroupItem title="Terminal" >
 
-<v-termynal class="terminal" fixed-height forward-button restart-button>
+<v-termynal class="terminal" forward-button restart-button>
   <vt-text class="comment">💬 Go to the home directory</vt-text>
   <vt-input>cd</vt-input>
   <vt-text class="comment">💬 Create a directory for all your code projects</vt-text>
@@ -138,7 +137,7 @@
   <CodeGroupItem title="HTML">
 
 ```html:no-line-numbers
-<v-termynal class="terminal" fixed-height forward-button restart-button>
+<v-termynal class="terminal" forward-button restart-button>
   <vt-text class="comment">💬 Go to the home directory</vt-text>
   <vt-input>cd</vt-input>
   <vt-text class="comment">💬 Create a directory for all your code projects</vt-text>

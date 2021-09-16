@@ -12,12 +12,7 @@ export default defineComponent({
   },
   computed: {
     style() {
-      const fixedHeight = this.$parent.fixedHeight
-      const hiddenStyles = fixedHeight
-        ? { visibility: "hidden" }
-        : { display: "none" }
-
-      return this.hidden ? hiddenStyles : null
+      return this.hidden ? { visibility: "hidden" } : null
     },
     hidden() {
       return !this.visible
