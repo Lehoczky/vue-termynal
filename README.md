@@ -7,7 +7,7 @@
 
 Vue-Termynal is the reimplementation of the [termynal library](https://github.com/ines/termynal) in Vue.js.
 
-It lets you create animated teminal windows with simple, customizable vue components.
+It lets you create animated terminal windows with simple, customizable vue components.
 
 ![example gif](docs/assets/simple-example.gif)
 
