@@ -20,10 +20,12 @@
 import { defineComponent } from "vue"
 import ForwardButton from "./_ForwardButton.vue"
 import RestartButton from "./_RestartButton.vue"
+import IntersectionObserver from "../mixins/IntersectionObserverMixin"
 import { wait } from "../utils"
 
 export default defineComponent({
   components: { ForwardButton, RestartButton },
+  mixins: [IntersectionObserver],
   props: {
     /** Delay before animation, in ms. */
     startDelay: { type: Number, default: 600, required: false },
@@ -41,8 +43,8 @@ export default defineComponent({
     progressDelay: { type: Number, default: 90, required: false },
     /** Character to use for cursor, defaults to ▋. */
     cursor: { type: String, default: "▋", required: false },
-    /**  Don't initialise the animation. */
-    noInit: { type: Boolean, default: false, required: false },
+    /** Only start the animation when the terminal enters the viewport. */
+    lazy: { type: Boolean, default: false, required: false },
     /** Whether to a show the fast forward button. */
     forwardButton: { type: Boolean, default: false, required: false },
     /** Whether to a show the restart button. */
@@ -70,10 +72,11 @@ export default defineComponent({
     },
   },
   mounted() {
-    if (this.noInit) {
-      return
+    if (this.lazy) {
+      this.setupIntersectionObserver()
+    } else {
+      this.start()
     }
-    this.start()
   },
   methods: {
     async start() {
@@ -96,6 +99,15 @@ export default defineComponent({
     },
     doFastForward() {
       this.fastForward = true
+    },
+    setupIntersectionObserver() {
+      this.observe(entries => {
+        const isIntersecting = entries.some(entry => entry.isIntersecting)
+        if (isIntersecting) {
+          this.start()
+          this.unobserve()
+        }
+      })
     },
   },
 })

@@ -6,19 +6,19 @@ The terminal is the container of each line. You can specify properties on the te
 
 The following props are available:
 
-| Name              | Type    | Default | Description                                                                                                               |
-| ----------------- | ------- | ------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `startDelay`      | number  | `600`   | Delay before animation, in ms.                                                                                            |
-| `typeDelay`       | number  | `90`    | Delay between each typed character, in ms.                                                                                |
-| `lineDelay`       | number  | `1500`  | Delay between each line, in ms.                                                                                           |
-| `progressLength`  | number  | `40`    | Number of characters displayed as progress bar.                                                                           |
-| `progressChar`    | string  | `'█'`   | Character to use for progress bar.                                                                                        |
-| `progressPercent` | number  | `100`   | Max percent of progress.                                                                                                  |
-| `progressDelay`   | number  | `90`    | Delay between each progress character, in ms.                                                                             |
-| `cursor`          | string  | `'▋'`   | Character to use for cursor.                                                                                              |
-| `noInit`          | boolean | `false` | Don't initialise the animation on load. This means you can call `this.$refs.termynal.start()` yourself whenever you want. |
-| `forwardButton`   | boolean | `false` | Whether to a show the fast forward button.                                                                                |
-| `restartButton`   | boolean | `false` | Whether to a show the restart button.                                                                                     |
+| Name              | Type    | Default | Description                                                     |
+| ----------------- | ------- | ------- | --------------------------------------------------------------- |
+| `startDelay`      | number  | `600`   | Delay before animation, in ms.                                  |
+| `typeDelay`       | number  | `90`    | Delay between each typed character, in ms.                      |
+| `lineDelay`       | number  | `1500`  | Delay between each line, in ms.                                 |
+| `progressLength`  | number  | `40`    | Number of characters displayed as progress bar.                 |
+| `progressChar`    | string  | `'█'`   | Character to use for progress bar.                              |
+| `progressPercent` | number  | `100`   | Max percent of progress.                                        |
+| `progressDelay`   | number  | `90`    | Delay between each progress character, in ms.                   |
+| `cursor`          | string  | `'▋'`   | Character to use for cursor.                                    |
+| `lazy`            | boolean | `false` | Only start the animation when the terminal enters the viewport. |
+| `forwardButton`   | boolean | `false` | Whether to a show the fast forward button.                      |
+| `restartButton`   | boolean | `false` | Whether to a show the restart button.                           |
 
 ## Text
 
