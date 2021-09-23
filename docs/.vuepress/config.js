@@ -13,6 +13,9 @@ module.exports = {
       "vuepress-integration.md",
       "examples.md",
     ],
+    contributors: false,
     lastUpdated: false,
+    docsBranch: "master",
+    docsDir: "docs",
   },
 }
