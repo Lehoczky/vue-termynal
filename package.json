@@ -19,8 +19,8 @@
     "dist",
     "README.md"
   ],
-  "main": "./dist/my-lib.umd.js",
-  "module": "./dist/my-lib.es.js",
+  "main": "./dist/vue-termynal.umd.js",
+  "module": "./dist/vue-termynal.es.js",
   "exports": {
     ".": {
       "import": "./dist/vue-termynal.es.js",
