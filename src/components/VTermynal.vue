@@ -6,7 +6,13 @@
       @click="doFastForward()"
     />
 
-    <slot />
+    <div
+      ref="shell"
+      :style="{ height: shellHeight + 'px' }"
+      style="overflow-y: hidden"
+    >
+      <slot />
+    </div>
 
     <restart-button
       v-if="restartButton"
@@ -21,7 +27,7 @@ import { defineComponent } from "vue"
 import ForwardButton from "./_ForwardButton.vue"
 import RestartButton from "./_RestartButton.vue"
 import IntersectionObserver from "../mixins/IntersectionObserverMixin"
-import { wait } from "../utils"
+import { wait, scrollToPosition } from "../utils"
 
 export default defineComponent({
   components: { ForwardButton, RestartButton },
@@ -49,6 +55,10 @@ export default defineComponent({
     forwardButton: { type: Boolean, default: false, required: false },
     /** Whether to a show the restart button. */
     restartButton: { type: Boolean, default: false, required: false },
+    /** Fixes the height of the shell div, if enabled the inner div
+     * will scroll to display the content
+     */
+    shellHeight: { type: Number, default: -1, required: false },
   },
   data() {
     return {
@@ -81,9 +91,11 @@ export default defineComponent({
   methods: {
     async start() {
       this.started = true
+      this.$refs.shell.scrollTo({ top: 0 })
       await wait(this.startDelay)
 
       for (const line of this.lines) {
+        scrollToPosition(line.$el)
         await line.show()
       }
       this.finished = true
