@@ -12,6 +12,7 @@ module.exports = {
       "styling.md",
       "vuepress-integration.md",
       "examples.md",
+      "contributing.md",
     ],
     contributors: false,
     lastUpdated: false,
