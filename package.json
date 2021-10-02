@@ -8,9 +8,9 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "lint": "eslint src/ --ext .js,.vue --max-warnings 0",
+    "lint": "npm run eslint:check && npm run styles:check && npm run format:check",
+    "eslint:check": "eslint src/ --ext .js,.vue --max-warnings 0",
     "styles:check": "stylelint \"src/**/*.css\"",
-    "styles:fix": "stylelint \"src/**/*.css\" --fix",
     "format:check": "prettier src/** --check",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
