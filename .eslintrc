@@ -3,6 +3,30 @@
   "plugins": ["only-warn"],
   "extends": ["eslint:recommended", "plugin:vue/vue3-recommended", "prettier"],
   "rules": {
-    "vue/html-self-closing": ["warn", { "html": { "void": "always" } }]
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-unsafe-optional-chaining": "warn",
+
+    "default-case-last": "warn",
+    "default-param-last": "warn",
+    "eqeqeq": "warn",
+    "no-else-return": "warn",
+    "no-implicit-coercion": "warn",
+    "no-param-reassign": "warn",
+    "no-return-assign": "warn",
+    "no-useless-return": "warn",
+    "yoda": "warn",
+
+    "no-negated-condition": "warn",
+
+    "no-var": "warn",
+    "object-shorthand": "warn",
+    "prefer-arrow-callback": "warn",
+    "prefer-const": "warn",
+    "prefer-template": "warn",
+
+    "vue/html-self-closing": ["warn", { "html": { "void": "always" } }],
+    "vue/custom-event-name-casing": "warn",
+    "vue/no-useless-v-bind": "warn",
+    "vue/eqeqeq": "warn"
   }
 }

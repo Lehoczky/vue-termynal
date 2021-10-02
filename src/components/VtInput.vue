@@ -34,7 +34,7 @@ export default defineComponent({
       this.$el.textContent = ""
       this.visible = true
 
-      for (let char of chars) {
+      for (const char of chars) {
         await this.wait(typeDelay)
         this.$el.textContent += char
       }
