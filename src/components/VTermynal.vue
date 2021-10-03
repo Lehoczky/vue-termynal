@@ -50,6 +50,7 @@ export default defineComponent({
     /** Whether to a show the restart button. */
     restartButton: { type: Boolean, default: false, required: false },
   },
+  emits: ["start", "before-new-line", "fast-forward", "finish", "restart"],
   data() {
     return {
       lines: [],
@@ -71,6 +72,23 @@ export default defineComponent({
       )
     },
   },
+  watch: {
+    started(newValue) {
+      if (newValue) {
+        this.$emit("start")
+      }
+    },
+    fastForward(newValue) {
+      if (newValue) {
+        this.$emit("fast-forward")
+      }
+    },
+    finished(newValue) {
+      if (newValue) {
+        this.$emit("finish")
+      }
+    },
+  },
   mounted() {
     if (this.lazy) {
       this.setupIntersectionObserver()
@@ -84,6 +102,7 @@ export default defineComponent({
       await wait(this.startDelay)
 
       for (const line of this.lines) {
+        this.$emit("before-new-line", line.$el)
         await line.show()
       }
       this.finished = true
@@ -95,6 +114,8 @@ export default defineComponent({
       for (const line of this.lines) {
         line.hide()
       }
+
+      this.$emit("restart")
       this.start()
     },
     doFastForward() {
