@@ -10,7 +10,6 @@ export default defineComponent({
   name: "VtProgress",
   mixins: [TermynalLine],
   props: {
-    progressUnknown: { type: Boolean, default: false, required: false },
     progressLength: { type: Number, default: null, required: false },
     progressChar: { type: String, default: null, required: false },
     progressPercent: { type: Number, default: null, required: false },
@@ -25,8 +24,7 @@ export default defineComponent({
       const progressPercent =
         this.progressPercent ?? this.$parent.progressPercent
       const progressDelay = this.progressDelay ?? this.$parent.progressDelay
-      const unknownProgressChars = "⡀⡄⡆⡇⡏⡟⡿⣿⢿⢻⢹⢸⢰⢠⢀"
-      const currentContent = this.$el.textContent
+
       this.$el.textContent = ""
       this.visible = true
       const chars = progressChar.repeat(progressLength)
@@ -35,17 +33,7 @@ export default defineComponent({
         await this.wait(progressDelay)
 
         const percent = Math.round((i / chars.length) * 100)
-        if (this.progressUnknown == false) {
-          this.$el.textContent = `${currentContent} ${chars.slice(
-            0,
-            i
-          )} ${percent}%`
-        } else {
-          this.$el.textContent =
-            currentContent +
-            " " +
-            unknownProgressChars.charAt(i % unknownProgressChars.length)
-        }
+        this.$el.textContent = `${chars.slice(0, i)} ${percent}%`
         if (percent > progressPercent) {
           break
         }
