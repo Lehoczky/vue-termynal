@@ -1,7 +1,5 @@
 <template>
-  <span class="vt__line" :style="style">
-    <slot />
-  </span>
+  <span class="vt__line" :style="style" :vt__loading-prefix="prefix" />
 </template>
 
 <script>
@@ -17,6 +15,7 @@ export default defineComponent({
     progressChar: { type: String, default: null, required: false },
     progressPercent: { type: Number, default: null, required: false },
     progressDelay: { type: Number, default: null, required: false },
+    prefix: { type: String, default: null, required: false },
   },
   methods: {
     async show() {
