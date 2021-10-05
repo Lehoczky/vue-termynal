@@ -49,6 +49,7 @@
 .vt__line {
   display: block;
   line-height: 2;
+  white-space: pre;
 }
 
 .vt__line::before {
@@ -60,18 +61,24 @@
 }
 
 .vt__line--input::before,
-[vt__prompt]::before {
+[vt__prompt]::before,
+[vt__loading-prefix]::before {
   margin-right: 0.75em;
-  color: var(--vt-color-text-subtle);
   visibility: inherit;
 }
 
 .vt__line--input::before {
+  color: var(--vt-color-text-subtle);
   content: "$";
 }
 
 [vt__prompt]::before {
+  color: var(--vt-color-text-subtle);
   content: attr(vt__prompt);
+}
+
+[vt__loading-prefix]::before {
+  content: attr(vt__loading-prefix);
 }
 
 [vt__cursor]::after {
