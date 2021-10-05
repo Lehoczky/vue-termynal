@@ -17,6 +17,7 @@ In addition to the javascript library's original features this version includes:
 
 - fast forward button
 - restart button
+- spinner
 - option to only start the animation when the terminal enters the viewport
 
 ## Documentation

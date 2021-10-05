@@ -1,10 +1,12 @@
 # Examples
 
+## Default theme
+
 <CodeGroup>
 
 <CodeGroupItem title="Terminal" >
 
-<v-termynal class="terminal" forward-button restart-button>
+<v-termynal class="terminal" forward-button restart-button lazy>
   <vt-input>pip install spacy</vt-input>
   <vt-progress />
   <vt-text>Successfully installed spacy</vt-text>
@@ -26,7 +28,7 @@
   <CodeGroupItem title="HTML">
 
 ```html:no-line-numbers
-<v-termynal forward-button restart-button>
+<v-termynal forward-button restart-button lazy>
   <vt-input>pip install spacy</vt-input>
   <vt-progress />
   <vt-text>Successfully installed spacy</vt-text>
@@ -48,11 +50,13 @@
 
 </CodeGroup>
 
+## Light theme
+
 <CodeGroup>
 
 <CodeGroupItem title="Terminal" >
 
-<v-termynal class="terminal light" :type-delay="40" :line-delay="700" :start-delay="0" forward-button restart-button>
+<v-termynal class="terminal light" :type-delay="40" :line-delay="700" :start-delay="0" forward-button restart-button lazy>
   <vt-input prompt="▲">npm uninstall react</vt-input>
   <vt-text>Are you sure you want to uninstall 'react'?</vt-text>
   <vt-input prompt="(y/n)" :type-delay="1000">y</vt-input>
@@ -115,11 +119,13 @@
 
 </CodeGroup>
 
+## Text elements as explanations
+
 <CodeGroup>
 
 <CodeGroupItem title="Terminal" >
 
-<v-termynal class="terminal" forward-button restart-button>
+<v-termynal class="terminal" forward-button restart-button lazy>
   <vt-text class="comment">💬 Go to the home directory</vt-text>
   <vt-input>cd</vt-input>
   <vt-text class="comment">💬 Create a directory for all your code projects</vt-text>

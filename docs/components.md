@@ -6,19 +6,22 @@ The terminal is the container of each line. You can specify properties on the te
 
 The following props are available:
 
-| Name              | Type    | Default | Description                                                     |
-| ----------------- | ------- | ------- | --------------------------------------------------------------- |
-| `startDelay`      | number  | `600`   | Delay before animation, in ms.                                  |
-| `typeDelay`       | number  | `90`    | Delay between each typed character, in ms.                      |
-| `lineDelay`       | number  | `1500`  | Delay between each line, in ms.                                 |
-| `progressLength`  | number  | `40`    | Number of characters displayed as progress bar.                 |
-| `progressChar`    | string  | `'█'`   | Character to use for progress bar.                              |
-| `progressPercent` | number  | `100`   | Max percent of progress.                                        |
-| `progressDelay`   | number  | `90`    | Delay between each progress character, in ms.                   |
-| `cursor`          | string  | `'▋'`   | Character to use for cursor.                                    |
-| `lazy`            | boolean | `false` | Only start the animation when the terminal enters the viewport. |
-| `forwardButton`   | boolean | `false` | Whether to a show the fast forward button.                      |
-| `restartButton`   | boolean | `false` | Whether to a show the restart button.                           |
+| Name                | Type    | Default | Description                                                     |
+| ------------------- | ------- | ------- | --------------------------------------------------------------- |
+| `startDelay`        | number  | `600`   | Delay before animation, in ms.                                  |
+| `typeDelay`         | number  | `90`    | Delay between each typed character, in ms.                      |
+| `lineDelay`         | number  | `1500`  | Delay between each line, in ms.                                 |
+| `progressLength`    | number  | `40`    | Number of characters displayed as progress bar.                 |
+| `progressChar`      | string  | `'█'`   | Character to use for progress bar.                              |
+| `progressPercent`   | number  | `100`   | Max percent of progress.                                        |
+| `progressDelay`     | number  | `90`    | Delay between each progress character, in ms.                   |
+| `spinnerType`       | string  | `dots`  | Type of each spinner, defaults to `dots`.                       |
+| `spinnerFrameDelay` | number  | `80`    | Delay between each spinner frame, in ms.                        |
+| `spinnerDuration`   | number  | `1.5`   | Seconds to wait before finishing each spinner's animation.      |
+| `cursor`            | string  | `'▋'`   | Character to use for cursor.                                    |
+| `lazy`              | boolean | `false` | Only start the animation when the terminal enters the viewport. |
+| `forwardButton`     | boolean | `false` | Whether to a show the fast forward button.                      |
+| `restartButton`     | boolean | `false` | Whether to a show the restart button.                           |
 
 ## Text
 
@@ -66,7 +69,7 @@ Example:
 
 Animated progress bar.
 
-Props: `lineDelay`, `progressLength`, `progressChar`, `progressPercent`, `progressDelay`
+Props: `lineDelay`, `progressLength`, `progressChar`, `progressPercent`, `progressDelay`, `prefix`
 
 Example:
 
@@ -75,6 +78,7 @@ Example:
   <vt-progress />
   <vt-progress :progress-length="45" progress-char="." />
   <vt-progress :progress-percent="69" />
+  <vt-progress prefix="Calculating:" :progress-length="26" />
 </v-termynal>
 ```
 
@@ -82,4 +86,29 @@ Example:
   <vt-progress />
   <vt-progress :progress-length="45" progress-char="."/>
   <vt-progress :progress-percent="69" />
+  <vt-progress prefix="Calculating:" :progress-length="26" />
+</v-termynal>
+
+## Spinner <Badge text="since 1.1.0" vertical="middle" />
+
+Animated spinner that shows through a given amount of time.
+
+See every type of spinner at [spinners in action](./_spinners-in-action.md).
+
+props: `type`, `frameDelay`, `duration`, `prefix`
+
+Example:
+
+```html
+<v-termynal>
+  <vt-spinner />
+  <vt-spinner type="aesthetic" />
+  <vt-spinner type="aesthetic" prefix="Installing" />
+</v-termynal>
+```
+
+<v-termynal :line-delay="0" :start-delay="0" :spinner-duration="0.1">
+  <vt-spinner />
+  <vt-spinner type="aesthetic" />
+  <vt-spinner type="aesthetic" prefix="Installing:" />
 </v-termynal>

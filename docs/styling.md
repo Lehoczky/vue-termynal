@@ -89,7 +89,7 @@ Example for a light theme:
 </style>
 ```
 
-<v-termynal class="light-termynal" forward-button restart-button>
+<v-termynal class="light-termynal" forward-button restart-button lazy>
   <vt-input>pip install spaCy</vt-input>
   <vt-progress />
   <vt-text>Successfully installed spacy</vt-text>
