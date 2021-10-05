@@ -93,7 +93,7 @@ Example:
 
 Animated spinner that shows through a given amount of time.
 
-See every type of spinner at [spinners in action](./_spinners-in-action.md).
+See every type of spinner at the [examples page](./examples.md#spinners).
 
 props: `type`, `frameDelay`, `duration`, `prefix`
 
