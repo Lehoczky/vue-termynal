@@ -23,6 +23,16 @@ The following props are available:
 | `forwardButton`     | boolean | `false` | Whether to a show the fast forward button.                      |
 | `restartButton`     | boolean | `false` | Whether to a show the restart button.                           |
 
+Emitted events:
+
+| Name              | Argument    | Description                                                                                                 |
+| ----------------- | ----------- | ----------------------------------------------------------------------------------------------------------- |
+| `start`           | none        | Emitted only once, when the terminal first starts it's animation.                                           |
+| `before-new-line` | HTMLElement | Emits the next line's HTMLElement before it's shown.                                                        |
+| `fast-forward`    | none        | Emitted when the user clicks on the fast forward button.                                                    |
+| `finish`          | none        | Emitted when the terminal finished it's animation.                                                          |
+| `restart`         | none        | Emitted when the user clicks on the restart button. Note: this will not trigger a `start` event afterwards. |
+
 ## Text
 
 Simple output, no typing.
