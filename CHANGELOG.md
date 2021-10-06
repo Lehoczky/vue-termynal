@@ -1,3 +1,11 @@
+## 1.1.0 (2021-10-06)
+
+### Features
+
+- the termynal component now emits `start`, `before-new-line`, `fast-forward`, `finish`, `restart` events
+- new `spinner` component
+- add `prefix` property to the `progress` component
+
 ## 1.0.2 (2021-09-25)
 
 ### Bug Fixes
