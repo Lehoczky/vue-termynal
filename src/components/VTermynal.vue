@@ -18,6 +18,7 @@
 
 <script>
 import { defineComponent } from "vue"
+import { spinnerTypeValidator } from "../validators"
 import ForwardButton from "./_ForwardButton.vue"
 import RestartButton from "./_RestartButton.vue"
 import IntersectionObserver from "../mixins/IntersectionObserverMixin"
@@ -41,6 +42,17 @@ export default defineComponent({
     progressPercent: { type: Number, default: 100, required: false },
     /** Delay between each progress character, in ms. */
     progressDelay: { type: Number, default: 90, required: false },
+    /** Type of each spinner, defaults to `dots`. */
+    spinnerType: {
+      type: String,
+      default: "dots",
+      required: false,
+      validator: spinnerTypeValidator,
+    },
+    /** Delay between each spinner frame, in ms. */
+    spinnerFrameDelay: { type: Number, default: 80, required: false },
+    /** Seconds to wait before finishing each spinner's animation. */
+    spinnerDuration: { type: Number, default: 1.5, required: false },
     /** Character to use for cursor, defaults to ▋. */
     cursor: { type: String, default: "▋", required: false },
     /** Only start the animation when the terminal enters the viewport. */

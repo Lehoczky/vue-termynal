@@ -12,10 +12,16 @@ First, import and register the components:
 
 ```js
 import { defineComponent } from "vue"
-import { VTermynal, VtInput, VtProgress, VtText } from "@lehoczky/vue-termynal"
+import {
+  VTermynal,
+  VtInput,
+  VtProgress,
+  VtSpinner,
+  VtText,
+} from "@lehoczky/vue-termynal"
 
 export default defineComponent({
-  components: { VTermynal, VtInput, VtProgress, VtText },
+  components: { VTermynal, VtInput, VtProgress, VtSpinner, VtText },
 })
 ```
 
