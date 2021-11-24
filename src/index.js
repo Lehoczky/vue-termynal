@@ -1,9 +1,24 @@
 import styleInject from "style-inject"
 import css from "./css/styles.css"
+import VTermynal from "./components/VTermynal.vue"
+import VtInput from "./components/VtInput.vue"
+import VtProgress from "./components/VtProgress.vue"
+import VtSpinner from "./components/VtSpinner.vue"
+import VtText from "./components/VtText.vue"
+
 styleInject(css) // workaround for https://github.com/vitejs/vite/issues/1579
 
-export { default as VTermynal } from "./components/VTermynal.vue"
-export { default as VtInput } from "./components/VtInput.vue"
-export { default as VtProgress } from "./components/VtProgress.vue"
-export { default as VtSpinner } from "./components/VtSpinner.vue"
-export { default as VtText } from "./components/VtText.vue"
+/**
+ * Vue plugin definition.
+ *
+ * @param {import("@vue/runtime-core").App} app
+ */
+const plugin = app => {
+  app.component("VTermynal", VTermynal)
+  app.component("VtInput", VtInput)
+  app.component("VtProgress", VtProgress)
+  app.component("VtSpinner", VtSpinner)
+  app.component("VtText", VtText)
+}
+
+export { plugin as default, VTermynal, VtInput, VtProgress, VtSpinner, VtText }

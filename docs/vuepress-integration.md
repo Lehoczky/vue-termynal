@@ -8,17 +8,13 @@ Create a file in your `docs/.vuepress` folder called `clientAppEnhance.{js|ts}` 
 
 ```js
 import { defineClientAppEnhance } from "@vuepress/client"
-import { VTermynal, VtInput, VtProgress, VtSpinner, VtText } from "../../src"
+import VueTermynalPlugin from "@lehoczky/vue-termynal"
 
-export default defineClientAppEnhance(({ app, router, siteData }) => {
-  app.component("VTermynal", VTermynal)
-  app.component("VtInput", VtInput)
-  app.component("VtProgress", VtProgress)
-  app.component("VtSpinner", VtSpinner)
-  app.component("VtText", VtText)
+export default defineClientAppEnhance(({ app }) => {
+  app.use(VueTermynalPlugin)
 })
 ```
 
 After this, you can use the components like in any other vue app.
 
-You can read more about `ClientAppEnhance` in the [offical docs](https://v2.vuepress.vuejs.org/advanced/cookbook/usage-of-client-app-enhance.html).
+Read more about `ClientAppEnhance` in the [offical docs](https://v2.vuepress.vuejs.org/advanced/cookbook/usage-of-client-app-enhance.html).

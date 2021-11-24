@@ -1,3 +1,9 @@
+## 1.2.0 (2021-11-24)
+
+### Features
+
+- the library can be installed as a Vue plugin
+
 ## 1.1.0 (2021-10-06)
 
 ### Features

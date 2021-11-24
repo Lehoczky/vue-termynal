@@ -27,10 +27,10 @@
 
 <script>
 import { defineComponent } from "vue"
-import { VTermynal, VtInput, VtProgress, VtText } from "../src"
+// import { VTermynal, VtInput, VtProgress, VtText } from "@lehoczky/vue-termynal"
 
 export default defineComponent({
-  components: { VTermynal, VtInput, VtProgress, VtText },
+  // components: { VTermynal, VtInput, VtProgress, VtText },
   methods: {
     scrollToNewLine(line) {
       const containerElement = this.$refs.container

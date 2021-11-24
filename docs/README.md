@@ -8,24 +8,27 @@ npm i @lehoczky/vue-termynal
 
 ## Simple example
 
-First, import and register the components:
+First, import and register the plugin in your `main.js` file:
 
 ```js
-import { defineComponent } from "vue"
-import {
-  VTermynal,
-  VtInput,
-  VtProgress,
-  VtSpinner,
-  VtText,
-} from "@lehoczky/vue-termynal"
+import App from "./App.vue"
+import VueTermynalPlugin from "@lehoczky/vue-termynal"
+
+createApp(App).use(VueTermynalPlugin).mount("#app")
+```
+
+Alternatively you can import the components directly:
+
+```js
+import { VTermynal, VtInput, VtProgress, VtText, VtSpinner } from "@lehoczky/vue-termynal"
 
 export default defineComponent({
-  components: { VTermynal, VtInput, VtProgress, VtSpinner, VtText },
+  components: { VTermynal, VtInput, VtProgress, VtText, VtSpinner },
+  ...
 })
 ```
 
-Then in the template, create simple terminal like this:
+Then in the template, create a simple terminal like this:
 
 ```html
 <v-termynal>
