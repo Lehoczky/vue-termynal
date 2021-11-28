@@ -43,6 +43,7 @@
     "stylelint-config-standard": "^24.0.0",
     "vite": "^2.6.14",
     "vue": "^3.2.22",
+    "vue-router": "^4.0.12",
     "vuepress-vite": "^2.0.0-beta.27"
   },
   "peerDependencies": {
