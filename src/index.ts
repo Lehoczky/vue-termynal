@@ -6,14 +6,14 @@ import VtProgress from "./components/VtProgress.vue"
 import VtSpinner from "./components/VtSpinner.vue"
 import VtText from "./components/VtText.vue"
 
+import type { Plugin } from "vue"
+
 styleInject(css) // workaround for https://github.com/vitejs/vite/issues/1579
 
 /**
  * Vue plugin definition.
- *
- * @param {import("@vue/runtime-core").App} app
  */
-const plugin = app => {
+const plugin: Plugin = app => {
   app.component("VTermynal", VTermynal)
   app.component("VtInput", VtInput)
   app.component("VtProgress", VtProgress)

@@ -1,8 +1,8 @@
-import { createRouter, createWebHashHistory } from "vue-router"
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router"
 import ScrollingTerminal from "./ScrollingTerminal.vue"
 import BasicTerminal from "./BasicTerminal.vue"
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   { path: "/", component: BasicTerminal },
   { path: "/autoscroll", component: ScrollingTerminal },
 ]

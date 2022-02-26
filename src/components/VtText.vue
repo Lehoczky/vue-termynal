@@ -1,23 +1,27 @@
 <template>
-  <span class="vt__line" :style="style">
+  <span ref="line" class="vt__line" :style="style">
     <slot />
   </span>
 </template>
 
-<script>
-import { defineComponent } from "vue"
-import TermynalLine from "../mixins/TermynalLineMixin"
+<script setup lang="ts">
+import { onMounted, inject } from "vue"
+import { termynalContext } from "../injectionKeys"
+import { useLine } from "../composables/useLine"
 
-export default defineComponent({
-  name: "VtText",
-  mixins: [TermynalLine],
-  methods: {
-    async show() {
-      const delay = this.lineDelay ?? this.$parent.lineDelay
-      this.visible = true
-
-      await this.wait(delay)
-    },
-  },
+const props = defineProps({
+  lineDelay: { type: Number, default: null, required: false },
 })
+
+const termynal = inject(termynalContext)
+const { line, visible, style, wait, registerShowFn } = useLine(termynal)
+
+const show = async () => {
+  const delay = props.lineDelay ?? termynal.lineDelay.value
+  visible.value = true
+
+  await wait(delay)
+}
+
+onMounted(() => registerShowFn(show))
 </script>

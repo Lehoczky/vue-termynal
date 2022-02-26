@@ -1,4 +1,7 @@
-module.exports = {
+import { defineUserConfig } from "vuepress-vite"
+import type { DefaultThemeOptions } from "vuepress-vite"
+
+export default defineUserConfig<DefaultThemeOptions>({
   base: "/vue-termynal/",
   lang: "en-US",
   title: "Vue-Termynal",
@@ -19,4 +22,4 @@ module.exports = {
     docsBranch: "master",
     docsDir: "docs",
   },
-}
+})
