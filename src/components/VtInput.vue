@@ -1,5 +1,6 @@
 <template>
   <span
+    ref="line"
     class="vt__line vt__line--input"
     :style="style"
     :vt__prompt="prompt"
@@ -9,42 +10,41 @@
   </span>
 </template>
 
-<script>
-import { defineComponent } from "vue"
-import TermynalLine from "../mixins/TermynalLineMixin"
+<script setup lang="ts">
+import { inject, onMounted, ref } from "vue"
+import { useLine } from "../composables/useLine"
+import { termynalContext } from "../injectionKeys"
 
-export default defineComponent({
-  name: "VtlInput",
-  mixins: [TermynalLine],
-  props: {
-    typeDelay: { type: Number, default: null, required: false },
-    prompt: { type: String, default: null, required: false },
-  },
-  data() {
-    return {
-      cursor: this.$parent.cursor,
-    }
-  },
-  methods: {
-    async show() {
-      const typeDelay = this.typeDelay ?? this.$parent.typeDelay
-      const lineDelay = this.lineDelay ?? this.$parent.lineDelay
-      const chars = [...this.$el.textContent]
-
-      this.$el.textContent = ""
-      this.visible = true
-
-      for (const char of chars) {
-        await this.wait(typeDelay)
-        this.$el.textContent += char
-      }
-
-      await this.wait(lineDelay)
-      this.removeCursor()
-    },
-    removeCursor() {
-      this.cursor = null
-    },
-  },
+const props = defineProps({
+  lineDelay: { type: Number, default: null, required: false },
+  typeDelay: { type: Number, default: null, required: false },
+  prompt: { type: String, default: null, required: false },
 })
+
+const termynal = inject(termynalContext)
+const { line, visible, style, wait, registerShowFn } = useLine(termynal)
+
+const cursor = ref(termynal.cursor.value)
+const removeCursor = () => {
+  cursor.value = null
+}
+
+const show = async () => {
+  const typeDelay = props.typeDelay ?? termynal.typeDelay.value
+  const lineDelay = props.lineDelay ?? termynal.lineDelay.value
+  const chars = [...line.value.textContent]
+
+  line.value.textContent = ""
+  visible.value = true
+
+  for (const char of chars) {
+    await wait(typeDelay)
+    line.value.textContent += char
+  }
+
+  await wait(lineDelay)
+  removeCursor()
+}
+
+onMounted(() => registerShowFn(show))
 </script>

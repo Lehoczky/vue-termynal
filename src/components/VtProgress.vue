@@ -1,46 +1,53 @@
 <template>
-  <span class="vt__line" :style="style" :vt__loading-prefix="prefix" />
+  <span
+    ref="line"
+    class="vt__line"
+    :style="style"
+    :vt__loading-prefix="prefix"
+  />
 </template>
 
-<script>
-import { defineComponent } from "vue"
-import TermynalLine from "../mixins/TermynalLineMixin"
+<script setup lang="ts">
+import { onMounted, inject } from "vue"
+import { useLine } from "../composables/useLine"
+import { termynalContext } from "../injectionKeys"
 
-export default defineComponent({
-  name: "VtProgress",
-  mixins: [TermynalLine],
-  props: {
-    progressLength: { type: Number, default: null, required: false },
-    progressChar: { type: String, default: null, required: false },
-    progressPercent: { type: Number, default: null, required: false },
-    progressDelay: { type: Number, default: null, required: false },
-    prefix: { type: String, default: null, required: false },
-  },
-  methods: {
-    async show() {
-      const lineDelay = this.lineDelay ?? this.$parent.lineDelay
-      const progressLength = this.progressLength ?? this.$parent.progressLength
-      const progressChar = this.progressChar ?? this.$parent.progressChar
-      const progressPercent =
-        this.progressPercent ?? this.$parent.progressPercent
-      const progressDelay = this.progressDelay ?? this.$parent.progressDelay
-
-      this.$el.textContent = ""
-      this.visible = true
-      const chars = progressChar.repeat(progressLength)
-
-      for (let i = 1; i < chars.length + 1; i++) {
-        await this.wait(progressDelay)
-
-        const percent = Math.round((i / chars.length) * 100)
-        this.$el.textContent = `${chars.slice(0, i)} ${percent}%`
-        if (percent > progressPercent) {
-          break
-        }
-      }
-
-      await this.wait(lineDelay)
-    },
-  },
+const props = defineProps({
+  lineDelay: { type: Number, default: null, required: false },
+  progressLength: { type: Number, default: null, required: false },
+  progressChar: { type: String, default: null, required: false },
+  progressPercent: { type: Number, default: null, required: false },
+  progressDelay: { type: Number, default: null, required: false },
+  prefix: { type: String, default: null, required: false },
 })
+
+const termynal = inject(termynalContext)
+const { line, visible, style, wait, registerShowFn } = useLine(termynal)
+
+const show = async () => {
+  const lineDelay = props.lineDelay ?? termynal.lineDelay.value
+  const progressLength = props.progressLength ?? termynal.progressLength.value
+  const progressChar = props.progressChar ?? termynal.progressChar.value
+  const progressPercent =
+    props.progressPercent ?? termynal.progressPercent.value
+  const progressDelay = props.progressDelay ?? termynal.progressDelay.value
+
+  line.value.textContent = ""
+  visible.value = true
+  const chars = progressChar.repeat(progressLength)
+
+  for (let i = 1; i < chars.length + 1; i++) {
+    await wait(progressDelay)
+
+    const percent = Math.round((i / chars.length) * 100)
+    line.value.textContent = `${chars.slice(0, i)} ${percent}%`
+    if (percent > progressPercent) {
+      break
+    }
+  }
+
+  await wait(lineDelay)
+}
+
+onMounted(() => registerShowFn(show))
 </script>

@@ -4,13 +4,16 @@
   </button>
 </template>
 
-<script>
-import { defineComponent } from "@vue/runtime-core"
-import ButtonMixin from "../mixins/ButtonMixin"
+<script setup lang="ts">
+import { computed, StyleValue } from "vue"
 
-export default defineComponent({
-  name: "RestartButton",
-  mixins: [ButtonMixin],
-  emits: ["click"],
+const props = defineProps({
+  visible: { type: Boolean, required: true },
+})
+
+defineEmits(["click"])
+
+const style = computed<StyleValue>(() => {
+  return props.visible ? null : { visibility: "hidden" }
 })
 </script>

@@ -25,27 +25,23 @@
   </v-termynal>
 </template>
 
-<script>
-import { defineComponent } from "vue"
+<script setup lang="ts">
+import { ref } from "vue"
 
-export default defineComponent({
-  methods: {
-    scrollToNewLine(line) {
-      const containerElement = this.$refs.container
+const container = ref<HTMLElement>(null)
 
-      if (line.offsetTop - line.offsetHeight > containerElement.offsetHeight) {
-        containerElement.scrollTo({
-          top:
-            line.offsetTop - line.offsetHeight - containerElement.offsetHeight,
-          behavior: "smooth",
-        })
-      }
-    },
-    scrollToTop() {
-      this.$refs.container.scrollTo({ top: 0 })
-    },
-  },
-})
+const scrollToNewLine = (line: HTMLElement) => {
+  if (line.offsetTop - line.offsetHeight > container.value.offsetHeight) {
+    container.value.scrollTo({
+      top: line.offsetTop - line.offsetHeight - container.value.offsetHeight,
+      behavior: "smooth",
+    })
+  }
+}
+
+const scrollToTop = () => {
+  container.value.scrollTo({ top: 0 })
+}
 </script>
 
 <style>

@@ -13,11 +13,3 @@
     <vt-input prompt="▲  ~/repos (master)">git commit -m "Fix things"</vt-input>
   </v-termynal>
 </template>
-
-<script>
-import { defineComponent } from "vue"
-
-export default defineComponent({})
-</script>
-
-<style></style>

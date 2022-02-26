@@ -1,7 +1,19 @@
 {
   "parser": "vue-eslint-parser",
-  "plugins": ["only-warn"],
-  "extends": ["eslint:recommended", "plugin:vue/vue3-recommended", "prettier"],
+  "plugins": ["only-warn", "@typescript-eslint"],
+  "env": {
+    "vue/setup-compiler-macros": true
+  },
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/vue3-recommended",
+    "prettier"
+  ],
   "rules": {
     "no-console": ["warn", { "allow": ["warn", "error"] }],
     "no-unsafe-optional-chaining": "warn",
@@ -24,9 +36,12 @@
     "prefer-const": "warn",
     "prefer-template": "warn",
 
+    "@typescript-eslint/no-non-null-assertion": "off",
+
     "vue/html-self-closing": ["warn", { "html": { "void": "always" } }],
     "vue/custom-event-name-casing": "warn",
     "vue/no-useless-v-bind": "warn",
-    "vue/eqeqeq": "warn"
+    "vue/eqeqeq": "warn",
+    "vue/script-setup-uses-vars": "warn"
   }
 }

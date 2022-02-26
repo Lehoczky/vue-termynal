@@ -1,51 +1,53 @@
 <template>
-  <span class="vt__line" :style="style" :vt__loading-prefix="prefix">
+  <span ref="line" class="vt__line" :style="style" :vt__loading-prefix="prefix">
     <slot />
   </span>
 </template>
 
-<script>
-import { defineComponent } from "vue"
+<script setup lang="ts">
+import { inject, onMounted } from "vue"
+import { useLine } from "../composables/useLine"
 import { SPINNERS } from "../data/spinners"
+import { termynalContext } from "../injectionKeys"
 import { spinnerTypeValidator } from "../validators"
-import TermynalLine from "../mixins/TermynalLineMixin"
 
-export default defineComponent({
-  name: "VtSpinner",
-  mixins: [TermynalLine],
-  props: {
-    type: {
-      type: String,
-      default: null,
-      required: false,
-      validator: spinnerTypeValidator,
-    },
-    frameDelay: { type: Number, default: null, required: false },
-    duration: { type: Number, default: null, required: false },
-    prefix: { type: String, default: null, required: false },
+const props = defineProps({
+  lineDelay: { type: Number, default: null, required: false },
+  type: {
+    type: String,
+    default: null,
+    required: false,
+    validator: spinnerTypeValidator,
   },
-  methods: {
-    async show() {
-      const lineDelay = this.lineDelay ?? this.$parent.lineDelay
-      const spinnerType = this.type ?? this.$parent.spinnerType
-      const frameDelay = this.frameDelay ?? this.$parent.spinnerFrameDelay
-      const duration = this.duration ?? this.$parent.spinnerDuration
-
-      const frames = SPINNERS[spinnerType]
-      const iterations = Math.round((duration * 1000) / frameDelay)
-
-      this.$el.textContent = ""
-      this.visible = true
-
-      for (let i = 0; i < iterations; i++) {
-        await this.wait(frameDelay)
-
-        const nextFrame = i % frames.length
-        this.$el.textContent = frames[nextFrame]
-      }
-
-      await this.wait(lineDelay)
-    },
-  },
+  frameDelay: { type: Number, default: null, required: false },
+  duration: { type: Number, default: null, required: false },
+  prefix: { type: String, default: null, required: false },
 })
+
+const termynal = inject(termynalContext)
+const { line, visible, style, wait, registerShowFn } = useLine(termynal)
+
+const show = async () => {
+  const lineDelay = props.lineDelay ?? termynal.lineDelay.value
+  const spinnerType = props.type ?? termynal.spinnerType.value
+  const frameDelay = props.frameDelay ?? termynal.spinnerFrameDelay.value
+  const duration = props.duration ?? termynal.spinnerDuration.value
+
+  const frames = SPINNERS[spinnerType]
+  const iterations = Math.round((duration * 1000) / frameDelay)
+
+  line.value.textContent = ""
+  visible.value = true
+
+  for (let i = 0; i < iterations; i++) {
+    await wait(frameDelay)
+
+    const nextFrame = i % frames.length
+    line.value.textContent = frames[nextFrame]
+  }
+
+  await wait(lineDelay)
+}
+
+onMounted(() => registerShowFn(show))
 </script>
