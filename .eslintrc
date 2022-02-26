@@ -37,6 +37,7 @@
     "prefer-template": "warn",
 
     "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/no-empty-function": "off",
 
     "vue/html-self-closing": ["warn", { "html": { "void": "always" } }],
     "vue/custom-event-name-casing": "warn",
