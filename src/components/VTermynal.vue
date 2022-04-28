@@ -136,8 +136,9 @@ const doFastForward = () => {
   fastForward.value = true
 }
 
+const root = ref<HTMLDivElement | null>(null)
+
 const setupIntersectionObserver = () => {
-  const root = ref<HTMLDivElement>()
   const { stopObserving } = useIntersectionObserver(root, entries => {
     const isIntersecting = entries.some(entry => entry.isIntersecting)
     if (isIntersecting) {

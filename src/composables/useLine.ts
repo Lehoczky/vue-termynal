@@ -3,7 +3,7 @@ import { TermynalState } from "../interfaces/termynalState"
 import { wait as _wait } from "../utils"
 
 export function useLine(termynal: TermynalState) {
-  const line = ref<HTMLElement>()
+  const line = ref<HTMLElement | null>(null)
   const visible = ref(false)
 
   const style = computed<StyleValue | null>(() => {
