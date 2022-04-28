@@ -1,0 +1,1 @@
+const e={key:"v-8daa1a0e",path:"/",title:"Getting Started",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Installation",slug:"installation",children:[]},{level:2,title:"Simple example",slug:"simple-example",children:[]}],filePathRelative:"README.md"};export{e as data};

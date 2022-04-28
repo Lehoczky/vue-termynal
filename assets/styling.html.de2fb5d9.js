@@ -1,0 +1,1 @@
+const t={key:"v-1c8a20e4",path:"/styling.html",title:"Styling",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"Changing colors",slug:"changing-colors",children:[]},{level:2,title:"Prompt styles",slug:"prompt-styles",children:[]},{level:2,title:"Cursor animation",slug:"cursor-animation",children:[]}],filePathRelative:"styling.md"};export{t as data};

@@ -1,0 +1,1 @@
+const e={key:"v-620ec7fc",path:"/vuepress-integration.html",title:"VuePress Integration",lang:"en-US",frontmatter:{},excerpt:"",headers:[{level:2,title:"VuePress-next",slug:"vuepress-next",children:[]}],filePathRelative:"vuepress-integration.md"};export{e as data};
