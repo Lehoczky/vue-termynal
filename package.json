@@ -19,18 +19,20 @@
     "dist",
     "README.md"
   ],
-  "main": "./dist/vue-termynal.umd.js",
-  "module": "./dist/vue-termynal.es.js",
+  "main": "./dist/vue-termynal.js",
+  "module": "./dist/vue-termynal.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/vue-termynal.es.js",
-      "require": "./dist/vue-termynal.umd.js"
+      "import": "./dist/vue-termynal.mjs",
+      "require": "./dist/vue-termynal.js"
     }
   },
   "dependencies": {
     "style-inject": "^0.3.0"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.5.0",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "@vitejs/plugin-vue": "^3.1.2",
@@ -49,7 +51,6 @@
     "typescript": "^4.8.4",
     "vite": "^3.1.6",
     "vue": "^3.2.40",
-    "vue-router": "^4.1.5",
     "vuepress": "2.0.0-beta.51"
   },
   "peerDependencies": {

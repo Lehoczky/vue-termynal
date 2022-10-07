@@ -2,7 +2,7 @@
   <div>
     <div class="links">
       <router-link to="/">Basic</router-link>
-      <router-link to="/autoscroll">Autoscroll</router-link>
+      <router-link to="/scrolling-terminal">Autoscroll</router-link>
       <router-link to="/intersection-observer"
         >IntersectionObserver</router-link
       >

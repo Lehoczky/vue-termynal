@@ -1,6 +1,7 @@
+import VueTermynalPlugin from "@lehoczky/vue-termynal"
 import { createApp } from "vue"
-import { router } from "./rotuer"
+
 import App from "./App.vue"
-import VueTermynalPlugin from "../src"
+import { router } from "./router"
 
 createApp(App).use(router).use(VueTermynalPlugin).mount("#app")
