@@ -1,12 +1,12 @@
 import styleInject from "style-inject"
-import css from "./css/styles.css"
+import type { Plugin } from "vue"
+
 import VTermynal from "./components/VTermynal.vue"
 import VtInput from "./components/VtInput.vue"
 import VtProgress from "./components/VtProgress.vue"
 import VtSpinner from "./components/VtSpinner.vue"
 import VtText from "./components/VtText.vue"
-
-import type { Plugin } from "vue"
+import css from "./css/styles.css"
 
 styleInject(css) // workaround for https://github.com/vitejs/vite/issues/1579
 

@@ -5,7 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted } from "vue"
+import { inject, onMounted, PropType } from "vue"
+
 import { useLine } from "../composables/useLine"
 import { SPINNERS } from "../data/spinners"
 import { termynalContext } from "../injectionKeys"
@@ -14,7 +15,7 @@ import { spinnerTypeValidator } from "../validators"
 const props = defineProps({
   lineDelay: { type: Number, default: null, required: false },
   type: {
-    type: String,
+    type: String as PropType<keyof typeof SPINNERS>,
     default: null,
     required: false,
     validator: spinnerTypeValidator,

@@ -8,7 +8,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, inject } from "vue"
+import { inject, onMounted } from "vue"
+
 import { useLine } from "../composables/useLine"
 import { termynalContext } from "../injectionKeys"
 

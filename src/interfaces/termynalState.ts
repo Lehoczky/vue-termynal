@@ -1,4 +1,6 @@
 import { Ref } from "vue"
+
+import type { SPINNERS } from "../data/spinners"
 import { Line } from "./line"
 
 export interface TermynalState {
@@ -9,7 +11,7 @@ export interface TermynalState {
   progressChar: Ref<string>
   progressPercent: Ref<number>
   progressDelay: Ref<number>
-  spinnerType: Ref<string>
+  spinnerType: Ref<keyof typeof SPINNERS>
   spinnerFrameDelay: Ref<number>
   spinnerDuration: Ref<number>
   cursor: Ref<string>

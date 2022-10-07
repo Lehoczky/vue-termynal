@@ -14,6 +14,6 @@ const props = defineProps({
 defineEmits(["click"])
 
 const style = computed<StyleValue>(() => {
-  return props.visible ? null : { visibility: "hidden" }
+  return props.visible ? {} : { visibility: "hidden" }
 })
 </script>

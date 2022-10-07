@@ -5,9 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, inject } from "vue"
-import { termynalContext } from "../injectionKeys"
+import { inject, onMounted } from "vue"
+
 import { useLine } from "../composables/useLine"
+import { termynalContext } from "../injectionKeys"
 
 const props = defineProps({
   lineDelay: { type: Number, default: null, required: false },

@@ -1,9 +1,9 @@
-import { onBeforeUnmount, Ref, watch, unref } from "vue"
+import { onBeforeUnmount, Ref, unref, watch } from "vue"
 
 const noop = () => {}
 
 export function useIntersectionObserver(
-  target: Ref<HTMLElement>,
+  target: Ref<HTMLElement | null>,
   callback: IntersectionObserverCallback
 ) {
   const isSupported = window && "IntersectionObserver" in window

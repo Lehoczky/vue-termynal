@@ -17,14 +17,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, provide, toRefs } from "vue"
-import ForwardButton from "./_ForwardButton.vue"
-import RestartButton from "./_RestartButton.vue"
-import { spinnerTypeValidator } from "../validators"
-import { wait } from "../utils"
+import { computed, onMounted, provide, ref, toRefs, watch } from "vue"
+
 import { useIntersectionObserver } from "../composables/useIntersectionObserver"
 import { termynalContext } from "../injectionKeys"
 import { Line } from "../interfaces/line"
+import { wait } from "../utils"
+import { spinnerTypeValidator } from "../validators"
+import ForwardButton from "./_ForwardButton.vue"
+import RestartButton from "./_RestartButton.vue"
 
 const props = defineProps({
   /** Delay before animation, in ms. */

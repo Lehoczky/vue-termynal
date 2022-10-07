@@ -12,6 +12,7 @@
 
 <script setup lang="ts">
 import { inject, onMounted, ref } from "vue"
+
 import { useLine } from "../composables/useLine"
 import { termynalContext } from "../injectionKeys"
 
@@ -21,10 +22,10 @@ const props = defineProps({
   prompt: { type: String, default: null, required: false },
 })
 
-const termynal = inject(termynalContext)
+const termynal = inject(termynalContext)!
 const { line, visible, style, wait, registerShowFn } = useLine(termynal)
 
-const cursor = ref(termynal.cursor.value)
+const cursor = ref<string>(termynal.cursor.value)
 const removeCursor = () => {
   cursor.value = null
 }
