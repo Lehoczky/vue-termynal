@@ -1,12 +1,15 @@
 name: publish
 on:
-  push:
-    branches:
-      - master
+  workflow_run:
+    workflows: [lint]
+    branches: [master]
+    types:
+      - completed
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v1
