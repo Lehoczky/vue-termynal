@@ -1,3 +1,16 @@
+## 1.2.2 (2022-10-07)
+
+### Bug fixes
+
+- fix: stop updating lines after the terminal has been unmounted
+- fix(progress): never exceed the given max percentage
+
+## 1.2.1 (2022-08-28)
+
+### Bug fixes
+
+- fix lazy prop
+
 ## 1.2.0 (2021-11-24)
 
 ### Features
