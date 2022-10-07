@@ -42,6 +42,9 @@ const show = async () => {
 
   for (let i = 0; i < iterations; i++) {
     await wait(frameDelay)
+    if (!line.value) {
+      return
+    }
 
     const nextFrame = i % frames.length
     line.value.textContent = frames[nextFrame]

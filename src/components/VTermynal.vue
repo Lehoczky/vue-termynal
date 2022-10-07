@@ -17,9 +17,19 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, provide, ref, toRefs, watch } from "vue"
+import {
+  computed,
+  onMounted,
+  onUnmounted,
+  PropType,
+  provide,
+  ref,
+  toRefs,
+  watch,
+} from "vue"
 
 import { useIntersectionObserver } from "../composables/useIntersectionObserver"
+import type { SPINNERS } from "../data/spinners"
 import { termynalContext } from "../injectionKeys"
 import { Line } from "../interfaces/line"
 import { wait } from "../utils"
@@ -44,7 +54,7 @@ const props = defineProps({
   progressDelay: { type: Number, default: 90, required: false },
   /** Type of each spinner, defaults to `dots`. */
   spinnerType: {
-    type: String,
+    type: String as PropType<keyof typeof SPINNERS>,
     default: "dots",
     required: false,
     validator: spinnerTypeValidator,
@@ -110,11 +120,16 @@ watch(finished, newValue => {
   }
 })
 
+const unmounted = ref(false)
+
 const start = async () => {
   started.value = true
   await wait(props.startDelay)
 
   for (const line of lines.value) {
+    if (unmounted.value) {
+      break
+    }
     emit("before-new-line", line.element)
     await line.show()
   }
@@ -155,5 +170,9 @@ onMounted(() => {
   } else {
     start()
   }
+})
+
+onUnmounted(() => {
+  unmounted.value = true
 })
 </script>

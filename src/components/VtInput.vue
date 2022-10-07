@@ -40,6 +40,9 @@ const show = async () => {
 
   for (const char of chars) {
     await wait(typeDelay)
+    if (!line.value) {
+      return
+    }
     line.value.textContent += char
   }
 

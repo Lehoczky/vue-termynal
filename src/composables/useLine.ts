@@ -19,7 +19,7 @@ export function useLine(termynal: TermynalState) {
   const registerShowFn = (showFn: () => Promise<void>) => {
     termynal.registerLine({
       element: line.value!,
-      show: showFn,
+      show: () => (line.value ? showFn() : Promise.resolve()),
       hide,
     })
   }

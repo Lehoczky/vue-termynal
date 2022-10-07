@@ -39,6 +39,9 @@ const show = async () => {
 
   for (let i = 1; i < chars.length + 1; i++) {
     await wait(progressDelay)
+    if (!line.value) {
+      return
+    }
 
     const percent = Math.round((i / chars.length) * 100)
     line.value.textContent = `${chars.slice(0, i)} ${percent}%`
