@@ -43,9 +43,12 @@ const show = async () => {
       return
     }
 
-    const percent = Math.round((i / chars.length) * 100)
+    const percent = Math.min(
+      Math.round((i / chars.length) * 100),
+      progressPercent
+    )
     line.value.textContent = `${chars.slice(0, i)} ${percent}%`
-    if (percent > progressPercent) {
+    if (percent === progressPercent) {
       break
     }
   }
