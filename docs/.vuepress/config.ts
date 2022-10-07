@@ -1,12 +1,11 @@
-import { defineUserConfig } from "vuepress-vite"
-import type { DefaultThemeOptions } from "vuepress-vite"
+import { defaultTheme, defineUserConfig } from "vuepress"
 
-export default defineUserConfig<DefaultThemeOptions>({
+export default defineUserConfig({
   base: "/vue-termynal/",
   lang: "en-US",
   title: "Vue-Termynal",
   description: "Documentation site for the Vue-Termynal library",
-  themeConfig: {
+  theme: defaultTheme({
     repo: "https://github.com/Lehoczky/vue-termynal",
     repoLabel: "GitHub",
     sidebar: [
@@ -21,5 +20,5 @@ export default defineUserConfig<DefaultThemeOptions>({
     lastUpdated: false,
     docsBranch: "master",
     docsDir: "docs",
-  },
+  }),
 })

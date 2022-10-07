@@ -12,16 +12,22 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@v2
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
+
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: "14"
+          cache: "pnpm"
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: Build VuePress site
-        run: npm run docs:build
+        run: pnpm run docs:build
 
       # @see https://github.com/crazy-max/ghaction-github-pages
       - name: Deploy to GitHub Pages
