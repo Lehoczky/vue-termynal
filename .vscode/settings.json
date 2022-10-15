@@ -9,5 +9,6 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "eslint.validate": ["javascript", "typescript", "yaml", "vue"],
   "cSpell.words": ["Termynal", "vuepress"]
 }

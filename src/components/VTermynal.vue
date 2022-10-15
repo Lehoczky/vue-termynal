@@ -1,27 +1,27 @@
 <template>
   <div ref="root" class="v-termynal">
-    <forward-button
+    <ForwardButton
       v-if="forwardButton"
       :visible="showForwardButton"
-      @click="doFastForward()"
+      @click="doFastForward"
     />
 
     <slot />
 
-    <restart-button
+    <RestartButton
       v-if="restartButton"
       :visible="showRestartButton"
-      @click="restart()"
+      @click="restart"
     />
   </div>
 </template>
 
 <script setup lang="ts">
+import type { PropType } from "vue"
 import {
   computed,
   onMounted,
   onUnmounted,
-  PropType,
   provide,
   ref,
   toRefs,
@@ -31,7 +31,7 @@ import {
 import { useIntersectionObserver } from "../composables/useIntersectionObserver"
 import type { SPINNERS } from "../data/spinners"
 import { termynalContext } from "../injectionKeys"
-import { Line } from "../interfaces/line"
+import type { Line } from "../interfaces/line"
 import { wait } from "../utils"
 import { spinnerTypeValidator } from "../validators"
 import ForwardButton from "./_ForwardButton.vue"

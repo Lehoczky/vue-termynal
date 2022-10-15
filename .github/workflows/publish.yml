@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 14
-          cache: "pnpm"
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -34,5 +34,5 @@ jobs:
       - name: Publish to npm
         uses: JS-DevTools/npm-publish@v1
         with:
-          access: "public"
+          access: public
           token: ${{ secrets.NPM_TOKEN }}

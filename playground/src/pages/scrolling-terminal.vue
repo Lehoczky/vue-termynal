@@ -5,7 +5,7 @@
     forward-button
     restart-button
     @before-new-line="scrollToNewLine($event)"
-    @restart="scrollToTop()"
+    @restart="scrollToTop"
   >
     <div ref="container" class="line-container">
       <vt-input prompt="▲">npm uninstall react</vt-input>
@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import { ref } from "vue"
 
-const container = ref<HTMLElement>(null)
+const container = ref<HTMLElement | null>(null)
 
 const scrollToNewLine = (line: HTMLElement) => {
   if (line.offsetTop - line.offsetHeight > container.value.offsetHeight) {

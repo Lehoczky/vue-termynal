@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 150vh" />
+  <div class="vh150" />
   <v-termynal
     :type-delay="0"
     :line-delay="0"
@@ -26,3 +26,9 @@
 // eslint-disable-next-line no-console
 const log = (msg: string) => console.log(msg)
 </script>
+
+<style scoped>
+.vh150 {
+  height: 150vh;
+}
+</style>

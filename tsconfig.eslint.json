@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true
+  },
+  "include": ["**/*.ts", "**/*.vue", ".eslintrc.cjs"]
+}

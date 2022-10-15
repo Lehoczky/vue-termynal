@@ -1,7 +1,7 @@
-import { Ref } from "vue"
+import type { Ref } from "vue"
 
 import type { SPINNERS } from "../data/spinners"
-import { Line } from "./line"
+import type { Line } from "./line"
 
 export interface TermynalState {
   startDelay: Ref<number>

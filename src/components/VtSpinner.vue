@@ -5,7 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted, PropType } from "vue"
+import type { PropType } from "vue"
+import { inject, onMounted } from "vue"
 
 import { useLine } from "../composables/useLine"
 import { SPINNERS } from "../data/spinners"

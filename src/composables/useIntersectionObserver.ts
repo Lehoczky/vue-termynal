@@ -1,4 +1,5 @@
-import { onBeforeUnmount, Ref, unref, watch } from "vue"
+import type { Ref } from "vue"
+import { onBeforeUnmount, unref, watch } from "vue"
 
 const noop = () => {}
 

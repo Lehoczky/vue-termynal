@@ -1,6 +1,7 @@
-import { computed, ref, StyleValue } from "vue"
+import type { StyleValue } from "vue"
+import { computed, ref } from "vue"
 
-import { TermynalState } from "../interfaces/termynalState"
+import type { TermynalState } from "../interfaces/termynalState"
 import { wait as _wait } from "../utils"
 
 export function useLine(termynal: TermynalState) {

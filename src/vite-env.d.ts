@@ -7,4 +7,7 @@ declare module "*.vue" {
   export default component
 }
 
-declare module "style-inject"
+declare module "style-inject" {
+  const module: (css: string) => void
+  export default module
+}

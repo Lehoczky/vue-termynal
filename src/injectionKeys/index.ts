@@ -1,5 +1,5 @@
-import { InjectionKey } from "vue"
+import type { InjectionKey } from "vue"
 
-import { TermynalState } from "../interfaces/termynalState"
+import type { TermynalState } from "../interfaces/termynalState"
 
 export const termynalContext = Symbol() as InjectionKey<TermynalState>
