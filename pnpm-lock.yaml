@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@lehoczky/eslint-config-vue': ^0.0.4
+  '@lehoczky/eslint-config-vue': ^0.0.5
   '@rollup/plugin-typescript': ^8.5.0
   '@vitejs/plugin-vue': ^3.1.2
   '@vue/compiler-sfc': ^3.2.40
@@ -22,7 +22,7 @@ dependencies:
   style-inject: 0.3.0
 
 devDependencies:
-  '@lehoczky/eslint-config-vue': 0.0.4_ypn2ylkkyfa5i233caldtndbqa
+  '@lehoczky/eslint-config-vue': 0.0.5_ypn2ylkkyfa5i233caldtndbqa
   '@rollup/plugin-typescript': 8.5.0_typescript@4.8.4
   '@vitejs/plugin-vue': 3.1.2_vite@3.1.6+vue@3.2.40
   '@vue/compiler-sfc': 3.2.40
@@ -171,8 +171,8 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@lehoczky/eslint-config-vue/0.0.4_ypn2ylkkyfa5i233caldtndbqa:
-    resolution: {integrity: sha512-O7smCfW3ymE0tvMvj03KmmRc6S0K3l5E8glc9Y6yk0WltWC2q4iOXuDj8NuflAgEGStxxJhTr0z0MIK9uYO8cA==}
+  /@lehoczky/eslint-config-vue/0.0.5_ypn2ylkkyfa5i233caldtndbqa:
+    resolution: {integrity: sha512-9fJcgbyJwxTwBRIY6RPDzXbTqqciD7v2Ctrl1L0PPqyn+pSIPFX74vun9CyAKf1/pC582bGRFIBwBtidgX41LA==}
     peerDependencies:
       eslint: '>=8.14.0'
       typescript: '>=4.0'

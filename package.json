@@ -32,7 +32,7 @@
     "style-inject": "^0.3.0"
   },
   "devDependencies": {
-    "@lehoczky/eslint-config-vue": "^0.0.4",
+    "@lehoczky/eslint-config-vue": "^0.0.5",
     "@rollup/plugin-typescript": "^8.5.0",
     "@vitejs/plugin-vue": "^3.1.2",
     "@vue/compiler-sfc": "^3.2.40",
