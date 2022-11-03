@@ -1,3 +1,9 @@
+## 1.3.0
+
+### Features
+
+- bundle type declarations
+
 ## 1.2.2 (2022-10-07)
 
 ### Bug fixes
