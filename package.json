@@ -31,7 +31,7 @@
     "style-inject": "^0.3.0"
   },
   "devDependencies": {
-    "@lehoczky/eslint-config-vue": "^0.0.10",
+    "@lehoczky/eslint-config-vue": "^0.0.12",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vuepress/client": "2.0.0-beta.51",
     "eslint": "^8.31.0",

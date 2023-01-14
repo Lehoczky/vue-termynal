@@ -1,3 +1,5 @@
+import "./styles.css"
+
 import VueTermynalPlugin from "@lehoczky/vue-termynal"
 import { createApp } from "vue"
 

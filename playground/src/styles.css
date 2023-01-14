@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Avoid jumping scrollbar: https://aykevl.nl/2014/09/fix-jumping-scrollbar */
+@media screen and (min-width: 960px) {
+  html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+  }
+}
+
+a {
+  @apply py-2 px-4 hover:bg-slate-50 transition rounded-md active:bg-slate-100;
+}
+
+.router-link-active {
+  @apply !bg-slate-100;
+}
