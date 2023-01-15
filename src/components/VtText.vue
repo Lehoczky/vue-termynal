@@ -5,17 +5,16 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted } from "vue"
+import { onMounted, ref } from "vue"
 
-import { useLine } from "../composables/useLine"
-import { termynalContext } from "../injectionKeys"
+import { useTermynalLine } from "../composables/useTermynalLine"
 
 const props = defineProps({
   lineDelay: { type: Number, default: null, required: false },
 })
 
-const termynal = inject(termynalContext)
-const { line, visible, style, wait, registerShowFn } = useLine(termynal)
+const line = ref<HTMLElement | null>(null)
+const { termynal, visible, style, wait, registerShowFn } = useTermynalLine(line)
 
 const show = async () => {
   const delay = props.lineDelay ?? termynal.lineDelay.value

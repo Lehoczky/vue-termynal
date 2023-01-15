@@ -6,11 +6,11 @@
 
 <script setup lang="ts">
 import type { PropType } from "vue"
-import { inject, onMounted } from "vue"
+import { ref } from "vue"
+import { onMounted } from "vue"
 
-import { useLine } from "../composables/useLine"
+import { useTermynalLine } from "../composables/useTermynalLine"
 import { SPINNERS } from "../data/spinners"
-import { termynalContext } from "../injectionKeys"
 import { spinnerTypeValidator } from "../validators"
 
 const props = defineProps({
@@ -26,8 +26,8 @@ const props = defineProps({
   prefix: { type: String, default: null, required: false },
 })
 
-const termynal = inject(termynalContext)
-const { line, visible, style, wait, registerShowFn } = useLine(termynal)
+const line = ref<HTMLElement | null>(null)
+const { termynal, visible, style, wait, registerShowFn } = useTermynalLine(line)
 
 const show = async () => {
   const lineDelay = props.lineDelay ?? termynal.lineDelay.value
