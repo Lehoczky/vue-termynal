@@ -6,7 +6,8 @@ import VtInput from "./components/VtInput.vue"
 import VtProgress from "./components/VtProgress.vue"
 import VtSpinner from "./components/VtSpinner.vue"
 import VtText from "./components/VtText.vue"
-import css from "./css/styles.css"
+import { useTermynalLine } from "./composables/useTermynalLine"
+import css from "./css/styles.css?inline"
 
 styleInject(css) // workaround for https://github.com/vitejs/vite/issues/1579
 
@@ -21,4 +22,12 @@ const plugin: Plugin = app => {
   app.component("VtText", VtText)
 }
 
-export { plugin as default, VTermynal, VtInput, VtProgress, VtSpinner, VtText }
+export {
+  plugin as default,
+  VTermynal,
+  VtInput,
+  VtProgress,
+  VtSpinner,
+  VtText,
+  useTermynalLine,
+}
