@@ -1,7 +1,8 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
   },
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -11,6 +12,6 @@
   },
   "eslint.validate": ["javascript", "typescript", "yaml", "vue"],
   "css.validate": false,
-  "stylelint.validate": ["css"],
+  "stylelint.validate": ["css", "postcss"],
   "cSpell.words": ["Termynal", "vuepress"]
 }
