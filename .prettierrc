@@ -1,6 +1,15 @@
 {
+  "printWidth": 80,
   "arrowParens": "avoid",
   "endOfLine": "auto",
   "semi": false,
-  "singleQuote": false
+  "singleQuote": false,
+  "overrides": [
+    {
+      "files": ["docs/**/*md"],
+      "options": {
+        "printWidth": 85
+      }
+    }
+  ]
 }

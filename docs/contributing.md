@@ -6,7 +6,7 @@ First [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the 
 
 ```sh
 git clone https://github.com/your-username/vue-termynal.git
-npm install
+pnpm install
 ```
 
 ## Development
@@ -16,7 +16,7 @@ npm install
 During development you can test your work in the `playground` folder. You can start the app inside it by running:
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
 ### Lint errors
@@ -24,7 +24,7 @@ npm run dev
 The project uses [ESlint](https://eslint.org/), [stylelint](https://stylelint.io/) and [prettier](https://prettier.io/) to ensure good code quality and consistent formatting. You can check your code with one simple command:
 
 ```sh
-npm run lint
+pnpm lint
 ```
 
 I highly recommend installing the IDE extensions for these tools to see any errors during development.
@@ -36,5 +36,5 @@ I highly recommend installing the IDE extensions for these tools to see any erro
 Please check the docs (and if needed), document your changes and add new examples. The following command starts to the documentation site locally:
 
 ```sh
-npm run docs:dev
+pnpm docs:dev
 ```

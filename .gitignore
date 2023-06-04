@@ -6,3 +6,5 @@ dist-ssr
 .idea
 .temp
 .cache
+**/.vitepress/dist
+**/.vitepress/cache
