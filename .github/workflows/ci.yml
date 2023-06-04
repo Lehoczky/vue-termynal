@@ -1,0 +1,96 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - "docs/**"
+    branches:
+      - master
+
+  pull_request:
+    paths-ignore:
+      - "docs/**"
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Check lint errors
+        run: pnpm lint
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Cache dist
+        uses: actions/upload-artifact@v3
+        with:
+          retention-days: 3
+          name: dist
+          path: dist
+
+  publish:
+    runs-on: ubuntu-latest
+    needs:
+      - lint
+      - build
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Restore dist cache
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+
+      - name: Publish to npm
+        uses: JS-DevTools/npm-publish@v2
+        with:
+          access: public
+          token: ${{ secrets.NPM_TOKEN }}
