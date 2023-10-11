@@ -65,6 +65,7 @@ jobs:
 
   publish:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     needs:
       - lint
       - build
