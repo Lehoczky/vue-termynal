@@ -49,8 +49,11 @@ jobs:
 
       - id: affected-packages
         run: |
-          AFFECTED='$(npx nx show projects --affected)' | tr '\n' ' '
-          echo "affected='${AFFECTED}'" >> "$GITHUB_OUTPUT"
+          {
+            echo 'affected<<EOF'
+            npx nx show projects --affected
+            echo EOF
+          } >> "$GITHUB_ENV"
 
       - run: echo ${{steps.affected-packages.outputs.affected}}
 
