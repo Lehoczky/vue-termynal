@@ -55,7 +55,7 @@ jobs:
             echo EOF
           } >> "$GITHUB_OUTPUT"
 
-      - run: echo ${{contains(steps.affected-packages.outputs.affected, 'demo')}}
+      - run: echo ${{join(steps.affected-packages.outputs.affected, '\n')}}
 
       # - name: Check formatting 🎨
       #   run: npx nx format:check
