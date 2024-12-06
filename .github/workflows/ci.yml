@@ -53,7 +53,7 @@ jobs:
         run: npx nx affected -t lint build publint
 
       - name: Deploy docs 🚀
-        if: github.ref == 'refs/heads/master' && contains(steps.affected-projects.outputs.result, 'docs')
+        if: github.ref == 'refs/heads/master' && contains(steps.affected-projects.outputs.affected, 'docs')
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
