@@ -38,7 +38,6 @@ jobs:
 
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
         uses: nrwl/nx-set-shas@v4
-        id: nx-sha
         with:
           main-branch-name: master
 
