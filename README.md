@@ -1,15 +1,13 @@
 # Vue-Termynal
 
 [![NPM version](https://img.shields.io/npm/v/@lehoczky/vue-termynal.svg)](https://www.npmjs.com/package/@lehoczky/vue-termynal)
-![lint status](https://github.com/lehoczky/vue-termynal/workflows/lint/badge.svg)
-![docs status](https://github.com/lehoczky/vue-termynal/workflows/docs/badge.svg)
-![publish status](https://github.com/lehoczky/vue-termynal/workflows/publish/badge.svg)
+![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/%40lehoczky%2Fvue-termynal)
+[![CI](https://github.com/Lehoczky/vue-termynal/actions/workflows/ci.yml/badge.svg)](https://github.com/Lehoczky/vue-termynal/actions/workflows/ci.yml)
 
 Vue-Termynal is the reimplementation of the [termynal library](https://github.com/ines/termynal) in Vue.js.
 
 It lets you create animated terminal windows with simple, customizable vue components.
-
-![example gif](docs/assets/simple-example.gif)
+![example gif](packages/docs/public/simple-example.gif)
 
 ## Additional feautes
 
