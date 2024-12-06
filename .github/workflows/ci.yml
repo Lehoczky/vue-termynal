@@ -47,7 +47,7 @@ jobs:
         id: affected-projects
         run: echo "affected='$(npx nx show projects --sep=' ')'" >> "$GITHUB_OUTPUT"
 
-      - run: echo ${{steps.affected-projects.outputs.affected}}
+      - run: echo ${{hashFiles('packages/docs/dist/index.html')}}
 
       # - name: Check formatting 🎨
       #   run: npx nx format:check
