@@ -50,12 +50,12 @@ jobs:
       - id: affected-packages
         run: |
           {
-            echo 'affected<<EOF'
+            echo 'AFFECTED<<EOF'
             npx nx show projects --affected
             echo EOF
-          } >> "$GITHUB_OUTPUT"
+          } >> "$GITHUB_ENV"
 
-      - run: echo ${{join(steps.affected-packages.outputs.affected, '\n')}}
+      - run: echo ${{env.AFFECTED}}
 
       # - name: Check formatting 🎨
       #   run: npx nx format:check
