@@ -48,7 +48,9 @@ jobs:
       #   run: npx nx show projects --affected >> $GITHUB_OUTPUT
 
       - id: affected-packages
-        run: echo "affected='$(npx nx show projects --affected)'" >> "$GITHUB_OUTPUT"
+        run: |
+          AFFECTED='$(npx nx show projects --affected)' | tr '\n' ' '
+          echo "affected='${AFFECTED}'" >> "$GITHUB_OUTPUT"
 
       - run: echo ${{contains(steps.affected-packages.outputs.affected, 'demo')}}
 
