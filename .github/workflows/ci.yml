@@ -2,96 +2,67 @@ name: CI
 
 on:
   push:
-    paths-ignore:
-      - "docs/**"
     branches:
       - master
-
   pull_request:
-    paths-ignore:
-      - "docs/**"
     branches:
       - master
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  lint:
+  ci:
+    name: ci
     runs-on: ubuntu-latest
     steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Check out Git repository ⏬
+        uses: actions/checkout@v4
         with:
-          node-version: 20
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Set up Node.js 💿
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".node-version"
           cache: pnpm
 
-      - name: Install dependencies
+      - name: Install dependencies 💤
         run: pnpm install
 
-      - name: Check lint errors
-        run: pnpm lint
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v4
+        id: nx-sha
         with:
-          node-version: 20
-          cache: pnpm
+          main-branch-name: master
 
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build
-        run: pnpm build
-
-      - name: Cache dist
-        uses: actions/upload-artifact@v3
+      - name: "Get affected projects"
+        uses: actions/github-script@v7
+        id: affected-packages
         with:
-          retention-days: 3
-          name: dist
-          path: dist
+          script: |
+            const { spawnSync } = require("node:child_process")
+            const command = spawnSync("npx nx show projects --affected", { shell: true })
+            return command.stdout.toString().replaceAll("\n", " ")
 
-  publish:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    needs:
-      - lint
-      - build
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v3
+      - run: echo ${{contains(steps.affected-packages.outputs.result, 'docs')}}
 
-      - name: Enable Corepack
-        run: corepack enable
+      # - name: Check formatting 🎨
+      #   run: npx nx format:check
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: pnpm
+      # - name: Lint and build projects 👷‍♀️
+      #   run: npx nx affected -t lint build publint
 
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Restore dist cache
-        uses: actions/download-artifact@v3
-        with:
-          name: dist
-
-      - name: Publish to npm
-        uses: JS-DevTools/npm-publish@v2
-        with:
-          access: public
-          token: ${{ secrets.NPM_TOKEN }}
+      # - name: Deploy demo page 🚀
+      #   if: github.ref == 'refs/heads/master' && contains(steps.affected-packages.outputs.affected, 'demo')
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./packages/demo/dist

@@ -1,4 +1,5 @@
 node_modules
+.pnpm-store
 .DS_Store
 dist
 dist-ssr
@@ -8,3 +9,6 @@ dist-ssr
 .cache
 **/.vitepress/dist
 **/.vitepress/cache
+
+.nx/cache
+.nx/workspace-data

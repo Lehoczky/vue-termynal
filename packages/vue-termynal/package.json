@@ -1,0 +1,59 @@
+{
+  "name": "@lehoczky/vue-termynal",
+  "description": "Vue.js implementation of the termynal library.",
+  "version": "1.3.0",
+  "private": false,
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint --max-warnings=0",
+    "lint:fix": "eslint --max-warnings=0 --fix",
+    "build": "vite build",
+    "publint": "publint"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/vue-termynal.js",
+      "require": "./dist/vue-termynal.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@lehoczky/eslint-config-vue": "^2.0.4",
+    "@types/node": "^20.17.9",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "eslint": "^9.16.0",
+    "publint": "^0.2.12",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.3",
+    "vite-plugin-css-injected-by-js": "^3.5.2",
+    "vite-plugin-dts": "^4.3.0",
+    "vue": "^3.5.13"
+  },
+  "author": {
+    "name": "Zoltan Lehoczky",
+    "email": "ifjlehoczkyzoltan@gmail.com",
+    "url": "https://github.com/Lehoczky"
+  },
+  "homepage": "https://lehoczky.github.io/vue-termynal",
+  "keywords": [
+    "vue",
+    "vue3",
+    "terminal",
+    "termynal",
+    "vuepress",
+    "documentation"
+  ],
+  "repository": {
+    "url": "https://github.com/Lehoczky/vue-termynal.git",
+    "type": "git"
+  }
+}

@@ -1,0 +1,111 @@
+:root {
+  --vt-color-bg: #252a33;
+  --vt-color-text: #eee;
+  --vt-color-text-subtle: #a2a2a2;
+  --vt-color-btn: #aebbff;
+  --vt-color-btn-hover: #fa0;
+}
+
+.v-termynal {
+  width: 750px;
+  max-width: 100%;
+  background: var(--vt-color-bg);
+  color: var(--vt-color-text);
+  font-size: 18px;
+  font-family: "Fira Mono", Consolas, Menlo, Monaco, "Courier New", Courier,
+    monospace;
+  border-radius: 4px;
+  padding: 75px 45px 35px;
+  position: relative;
+  box-sizing: border-box;
+  text-align: start;
+}
+
+.v-termynal::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+
+  /* A little hack to display the window buttons in one pseudo element. */
+  background: #d9515d;
+  box-shadow:
+    25px 0 0 #f4c025,
+    50px 0 0 #3ec930;
+}
+
+.v-termynal::after {
+  content: "bash";
+  position: absolute;
+  color: var(--vt-color-text-subtle);
+  top: 5px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.vt__line {
+  display: block;
+  line-height: 2;
+  white-space: pre;
+}
+
+.vt__line::before {
+  /* Set up defaults and ensure empty lines are displayed. */
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  visibility: visible;
+}
+
+.vt__line--input::before,
+[vt__prompt]::before,
+[vt__loading-prefix]::before {
+  margin-right: 0.75em;
+  visibility: inherit;
+}
+
+.vt__line--input::before {
+  color: var(--vt-color-text-subtle);
+  content: "$";
+}
+
+[vt__prompt]::before {
+  color: var(--vt-color-text-subtle);
+  content: attr(vt__prompt);
+}
+
+[vt__loading-prefix]::before {
+  content: attr(vt__loading-prefix);
+}
+
+[vt__cursor]::after {
+  content: attr(vt__cursor);
+  font-family: monospace;
+  margin-left: 0.5em;
+  animation: blink 1s infinite;
+}
+
+.vt__button {
+  display: block;
+  margin-left: auto;
+  color: var(--vt-color-btn);
+  background: transparent;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.vt__button:hover {
+  color: var(--vt-color-btn-hover);
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
