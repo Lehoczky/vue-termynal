@@ -7,7 +7,6 @@ on:
   pull_request:
     branches:
       - master
-  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -47,10 +46,15 @@ jobs:
         id: affected-projects
         run: echo "affected='$(npx nx show projects --sep=' ')'" >> "$GITHUB_OUTPUT"
 
-      # - name: Check formatting 🎨
-      #   run: npx nx format:check
+      - name: Check formatting 🎨
+        run: npx nx format:check
 
       - name: Lint and build projects 👷‍♀️
         run: npx nx affected -t lint build publint
 
-      - run: echo ${{hashFiles('packages/docs/dist/index.html')}}
+      - name: Deploy docs 🚀
+        if: github.ref == 'refs/heads/master' && contains(steps.affected-projects.outputs.result, 'docs')
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/docs/dist
