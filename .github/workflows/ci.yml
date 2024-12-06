@@ -47,10 +47,10 @@ jobs:
         id: affected-projects
         run: echo "affected='$(npx nx show projects --sep=' ')'" >> "$GITHUB_OUTPUT"
 
-      - run: echo ${{hashFiles('packages/docs/dist/index.html')}}
-
       # - name: Check formatting 🎨
       #   run: npx nx format:check
 
-      # - name: Lint and build projects 👷‍♀️
-      #   run: npx nx affected -t lint build publint
+      - name: Lint and build projects 👷‍♀️
+        run: npx nx affected -t lint build publint
+
+      - run: echo ${{hashFiles('packages/docs/dist/index.html')}}
