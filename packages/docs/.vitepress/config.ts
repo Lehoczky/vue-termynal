@@ -11,6 +11,7 @@ export default defineConfig({
   title: "Vue-Termynal",
   description: "Documentation site for the Vue-Termynal library",
   srcDir: "./src",
+  outDir: "./dist",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
