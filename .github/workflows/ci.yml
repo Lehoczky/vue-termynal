@@ -43,11 +43,8 @@ jobs:
         with:
           main-branch-name: master
 
-      # - name: Check for Affected Projects
-      #   id: affected-packages
-      #   run: npx nx show projects --affected >> $GITHUB_OUTPUT
-
-      - uses: actions/github-script@v7
+      - name: "Get affected projects"
+        uses: actions/github-script@v7
         id: affected-packages
         with:
           script: |
@@ -55,7 +52,7 @@ jobs:
             const command = spawnSync("npx nx show projects --affected", { shell: true })
             return command.stdout.toString().replaceAll("\n", " ")
 
-      - run: echo ${{steps.affected-packages.outputs.result}}
+      - run: echo ${{contains(steps.affected-packages.outputs.result, 'docs')}}
 
       # - name: Check formatting 🎨
       #   run: npx nx format:check
