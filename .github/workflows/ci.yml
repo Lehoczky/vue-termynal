@@ -53,7 +53,7 @@ jobs:
             echo 'affected<<EOF'
             npx nx show projects --affected
             echo EOF
-          } >> "$GITHUB_ENV"
+          } >> "$GITHUB_OUTPUT"
 
       - run: echo ${{steps.affected-packages.outputs.affected}}
 
