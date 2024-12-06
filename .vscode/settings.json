@@ -1,17 +1,13 @@
 {
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
+    "source.fixAll.eslint": "explicit"
   },
-  "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "eslint.validate": ["javascript", "typescript", "yaml", "vue"],
-  "css.validate": false,
-  "stylelint.validate": ["css", "postcss"],
-  "cSpell.words": ["Termynal", "vuepress"]
+  "css.customData": [".vscode/tailwind.json"],
+  "cSpell.words": ["Termynal", "vuepress"],
+  "editor.wordWrapColumn": 80,
+  "[markdown]": {
+    "editor.wordWrap": "wordWrapColumn"
+  }
 }

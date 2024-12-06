@@ -3,7 +3,7 @@
     "editorconfig.editorconfig",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "stylelint.vscode-stylelint",
-    "octref.vetur"
+    "github.vscode-github-actions",
+    "vue.volar"
   ]
 }
