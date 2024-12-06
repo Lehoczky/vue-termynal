@@ -44,7 +44,7 @@ jobs:
 
       - name: "Get affected projects"
         id: affected-projects
-        run: echo "affected='$(npx nx show projects --sep=' ')'" >> "$GITHUB_OUTPUT"
+        run: echo "affected='$(npx nx show projects --affected --sep=' ')'" >> "$GITHUB_OUTPUT"
 
       - name: Check formatting 🎨
         run: npx nx format:check
