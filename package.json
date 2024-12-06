@@ -1,20 +1,12 @@
 {
   "name": "@lehoczky/vue-termynal-monorepo",
-  "scripts": {
-    "lint": "npm run eslint:check && npm run format:check",
-    "eslint:check": "eslint --max-warnings=0",
-    "eslint:fix": "eslint --max-warnings=0 --fix",
-    "format:check": "prettier . --check --ignore-unknown",
-    "format:fix": "prettier . --write --ignore-unknown"
-  },
+  "scripts": {},
   "devDependencies": {
-    "@lehoczky/eslint-config-vue": "^2.0.4",
     "@lehoczky/prettier-config": "^2.0.1",
-    "eslint": "^9.16.0",
     "prettier": "^3.4.2",
-    "typescript": "~5.7.2"
+    "nx": "20.2.0"
   },
-  "packageManager": "pnpm@9.14.4",
+  "packageManager": "pnpm@9.15.0",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [

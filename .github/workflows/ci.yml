@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    name: ci
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository ⏬
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          run_install: false
+
+      - name: Set up Node.js 💿
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".node-version"
+          cache: pnpm
+
+      - name: Install dependencies 💤
+        run: pnpm install
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v4
+        id: nx-sha
+        with:
+          main-branch-name: master
+
+      # - name: Check for Affected Projects
+      #   id: affected-packages
+      #   run: npx nx show projects --affected >> $GITHUB_OUTPUT
+
+      - id: affected-packages
+        run: echo "affected='$(npx nx show projects --affected)'" >> "$GITHUB_OUTPUT"
+
+      - run: echo ${{contains(steps.affected-packages.outputs.affected, 'demo')}}
+
+      # - name: Check formatting 🎨
+      #   run: npx nx format:check
+
+      # - name: Lint and build projects 👷‍♀️
+      #   run: npx nx affected -t lint build publint
+
+      # - name: Deploy demo page 🚀
+      #   if: github.ref == 'refs/heads/master' && contains(steps.affected-packages.outputs.affected, 'demo')
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./packages/demo/dist
