@@ -41,7 +41,7 @@ export default defineConfig({
     },
     editLink: {
       pattern:
-        "https://github.com/Lehoczky/vue-termynal/edit/master/packages/docs/:path",
+        "https://github.com/Lehoczky/vue-termynal/edit/master/packages/docs/src/:path",
     },
   },
   markdown: {
