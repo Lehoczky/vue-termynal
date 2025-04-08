@@ -4,7 +4,7 @@ const log = (msg: string) => console.log(msg)
 
 <template>
   <div>↓ Scroll down</div>
-  <div class="h-[150vh] flex flex-col justify-end mb-10">
+  <div class="h-[200vh] flex flex-col justify-end mb-10">
     <v-termynal
       :type-delay="0"
       :line-delay="0"

@@ -2,17 +2,22 @@
   "name": "@lehoczky/vue-termynal-monorepo",
   "scripts": {},
   "devDependencies": {
-    "@lehoczky/prettier-config": "^2.0.1",
-    "prettier": "^3.4.2",
-    "nx": "20.2.0"
+    "@lehoczky/prettier-config": "^2.0.2",
+    "nx": "20.7.2",
+    "prettier": "^3.5.3"
   },
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@10.8.0",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
         "@algolia/client-search",
         "search-insights"
       ]
-    }
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "nx",
+      "vue-demi"
+    ]
   }
 }
