@@ -18,8 +18,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/vue-termynal.js",
-      "require": "./dist/vue-termynal.cjs"
+      "import": "./dist/vue-termynal.js"
     },
     "./package.json": "./package.json"
   },

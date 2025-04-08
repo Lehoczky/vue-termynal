@@ -18,7 +18,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "vue-termynal",
-      formats: ["es", "cjs"],
+      formats: ["es"],
     },
     sourcemap: true,
     rollupOptions: {
